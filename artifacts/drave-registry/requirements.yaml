@@ -1,0 +1,24 @@
+packages:
+  "framer-motion": "For premium smooth animations, scroll reveals, and page transitions"
+  "react-countup": "For animated statistic counters in the trust section"
+  "i18next": "Core internationalization library"
+  "react-i18next": "React bindings for i18next"
+  "i18next-browser-languagedetector": "Detect user language for i18n"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility for merging tailwind classes safely"
+
+images:
+  - path: "artifacts/drave-registry/public/images/hero-bg.png"
+    description: "Abstract electric blue and dark navy glowing gradient mesh with subtle elegant flowing lines and a subtle glowing 'D' shape motif, ultra premium luxury enterprise software aesthetic, dark mode, no text"
+    aspect_ratio: "16:9"
+  - path: "artifacts/drave-registry/public/images/ai-bg.png"
+    description: "Abstract glowing digital nodes and neural network lines over dark deep blue background, representing AI and website building, electric blue highlights, depth of field, 16:9"
+    aspect_ratio: "16:9"
+  - path: "artifacts/drave-registry/public/images/security-bg.png"
+    description: "Abstract glowing shield and digital data streams over dark deep blue background, electric azure highlights, cybersecurity concept, high tech enterprise, 16:9"
+    aspect_ratio: "16:9"
+
+notes:
+  - This is a frontend-only prototype for a premium domain registrar.
+  - No backend API is provided; all data and interactions are mocked for demonstration purposes.
+  - Strict adherence to dark navy/electric blue branding and Quicksand font.

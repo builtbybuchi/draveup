@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "title": "About DraveUp",
+    "subtitle": "Built by founders who were frustrated with overpriced, confusing domain registrars. We decided to build the one we always wanted.",
+    "badge": "ICANN Accredited Registrar"
+  },
+  "mission": {
+    "title": "Our Mission",
+    "desc": "To make establishing a professional online presence simple, affordable, and accessible for everyone — from first-time entrepreneurs to global enterprises."
+  },
+  "story": {
+    "title": "Our Story",
+    "p1": "DraveUp was founded in 2026 by a team of engineers and entrepreneurs who were tired of navigating overpriced, confusing domain registrars that buried every product behind dark patterns and upsells.",
+    "p2": "We built Drave from the ground up with a single commitment: transparent pricing, world-class technology, and genuine customer support. No tricks, no hidden fees, no auto-renewals you didn't agree to.",
+    "p3": "Today, DraveUp manages millions of domains across 150+ countries, and we're just getting started."
+  },
+  "stats": {
+    "domains": { "value": "10M+", "label": "Domains Managed" },
+    "customers": { "value": "500K+", "label": "Customers Worldwide" },
+    "countries": { "value": "150+", "label": "Countries Served" },
+    "uptime": { "value": "99.9%", "label": "Uptime Guarantee" }
+  },
+  "values": {
+    "title": "Our Values",
+    "v1": { "title": "Transparency", "desc": "No hidden fees, no surprise renewals. Every price is exactly what you'll pay — today and at renewal." },
+    "v2": { "title": "Reliability", "desc": "We operate redundant, enterprise-grade infrastructure with a financially backed 99.9% uptime SLA." },
+    "v3": { "title": "Customer First", "desc": "Our support team is staffed by real domain and hosting experts — available 24/7 in multiple languages." },
+    "v4": { "title": "Innovation", "desc": "We continuously invest in next-generation tools like our AI Website Builder to keep your business ahead." }
+  },
+  "team": {
+    "title": "Leadership Team",
+    "join": "Join Our Team",
+    "careers": "We're hiring across engineering, support, and growth. See open roles."
+  },
+  "cta": {
+    "title": "Ready to get started?",
+    "button": "Search Your Domain"
+  }
+}

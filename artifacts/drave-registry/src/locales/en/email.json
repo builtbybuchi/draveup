@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "title": "Professional Business Email",
+    "subtitle": "Look professional with an email address that matches your domain. Hosted on secure, ad-free enterprise servers.",
+    "badge": "Ad-Free & Secure"
+  },
+  "plans": {
+    "title": "Simple, transparent pricing",
+    "subtitle": "Choose the plan that fits your team.",
+    "starter": { "name": "Starter", "desc": "For individuals and freelancers", "users": "1 User", "storage": "10GB Storage" },
+    "business": { "name": "Business", "desc": "For growing teams", "users": "Up to 25 Users", "storage": "50GB per User" },
+    "enterprise": { "name": "Enterprise", "desc": "For large organizations", "users": "Unlimited Users", "storage": "100GB per User" }
+  },
+  "features": {
+    "title": "Everything you need in your inbox",
+    "f1": { "title": "Custom Domain Email", "desc": "Create yourname@yourbusiness.com and look instantly professional." },
+    "f2": { "title": "99.9% Uptime", "desc": "Your email is always on — redundant servers keep you connected." },
+    "f3": { "title": "Spam & Virus Protection", "desc": "Enterprise-grade filtering keeps your inbox clean and secure." },
+    "f4": { "title": "Calendar & Contacts", "desc": "Shared calendars, address books, and task management built in." },
+    "f5": { "title": "Mobile & Desktop Apps", "desc": "Access your email from any device using our native apps or webmail." },
+    "f6": { "title": "Email Aliases", "desc": "Create unlimited aliases — info@, support@, sales@ — all in one account." },
+    "f7": { "title": "Migration Assistance", "desc": "We'll migrate your existing emails from Gmail, Outlook, or any provider." },
+    "f8": { "title": "2FA Security", "desc": "Two-factor authentication protects your account from unauthorized access." }
+  },
+  "featureList": {
+    "webmail": "Webmail Access",
+    "spam": "Spam & Virus Filtering",
+    "mobile": "Mobile App Access",
+    "calendar": "Calendar & Contacts",
+    "aliases": "Email Aliases",
+    "support": "24/7 Support"
+  },
+  "cta": {
+    "title": "Your professional email is waiting",
+    "subtitle": "Set up takes under 5 minutes. Your email, your brand.",
+    "button": "Create Your Email"
+  }
+}

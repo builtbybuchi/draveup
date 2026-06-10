@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "domains": "Domains",
+    "website": "Website Builder",
+    "hosting": "Hosting",
+    "email": "Email",
+    "security": "Security",
+    "support": "Support",
+    "clientArea": "Client Area",
+    "login": "Log In"
+  },
+  "footer": {
+    "tagline": "Empowering individuals and businesses to establish their online presence.",
+    "products": "Products",
+    "company": "Company",
+    "support": "Support",
+    "legal": "Legal",
+    "domainNames": "Domain Names",
+    "aiBuilder": "AI Website Builder",
+    "webHosting": "Web Hosting",
+    "wordpressHosting": "WordPress Hosting",
+    "professionalEmail": "Professional Email",
+    "sslCerts": "SSL Certificates",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "contactUs": "Contact Us",
+    "affiliates": "Affiliates",
+    "partners": "Partners",
+    "helpCenter": "Help Center",
+    "productSupport": "Product Support",
+    "systemStatus": "System Status",
+    "reportAbuse": "Report Abuse",
+    "communityForums": "Community Forums",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "trustCenter": "Trust Center",
+    "whoisPolicy": "WHOIS Policy",
+    "cookiePolicy": "Cookie Policy",
+    "copyright": "© 2026 Drave Registry. All rights reserved.",
+    "icann": "ICANN ACCREDITED",
+    "ssl": "SSL SECURED"
+  },
+  "search": {
+    "placeholder": "Find your perfect domain name...",
+    "button": "Search",
+    "tld": ".com",
+    "perYear": "/yr",
+    "perMonth": "/mo"
+  },
+  "trust": {
+    "domains": "10M+ Domains",
+    "customers": "500K+ Customers",
+    "uptime": "99.9% Uptime",
+    "countries": "150+ Countries",
+    "domainsLabel": "Domains Managed",
+    "customersLabel": "Happy Customers",
+    "uptimeLabel": "Uptime Guarantee",
+    "countriesLabel": "Countries Served"
+  },
+  "cta": {
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "viewPlans": "View Plans",
+    "addToCart": "Add to Cart",
+    "choosePlan": "Choose Plan",
+    "selectPlan": "Select Plan",
+    "tryFree": "Try for Free",
+    "contactSales": "Contact Sales"
+  }
+}

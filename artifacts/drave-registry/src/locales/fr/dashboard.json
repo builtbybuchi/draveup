@@ -1,0 +1,113 @@
+{
+  "sidebar": {
+    "overview": "Aperçu",
+    "myDomains": "Mes domaines",
+    "transfers": "Transferts",
+    "orders": "Commandes",
+    "wallet": "Portefeuille",
+    "contacts": "Contacts",
+    "emailPlans": "Plans e-mail",
+    "whoisLookup": "Recherche WHOIS",
+    "security": "Sécurité",
+    "profile": "Profil"
+  },
+  "overview": {
+    "activeDomains": "Domaines actifs",
+    "pendingTransfers": "Transferts en attente",
+    "nextRenewal": "Prochain renouvellement",
+    "walletBalance": "Solde du portefeuille",
+    "none": "Aucun"
+  },
+  "domains": {
+    "title": "Mes domaines",
+    "empty": "Pas de domaines pour le moment",
+    "search": "Rechercher...",
+    "columns": {
+      "name": "Nom de domaine",
+      "status": "Statut",
+      "registrar": "Registraire",
+      "expires": "Expire",
+      "actions": "Actions"
+    },
+    "actions": {
+      "manage": "Gérer",
+      "renew": "Renouveler",
+      "transfer": "Transférer",
+      "delete": "Supprimer"
+    },
+    "status": {
+      "active": "Actif",
+      "expired": "Expiré",
+      "pending": "Transfert en attente",
+      "suspended": "Suspendu"
+    }
+  },
+  "transfers": {
+    "title": "Transferts de domaines",
+    "empty": "Aucun transfert actif",
+    "columns": {
+      "domain": "Domaine",
+      "status": "Statut",
+      "progress": "Progression",
+      "eTA": "Heure estimée"
+    }
+  },
+  "orders": {
+    "title": "Historique des commandes",
+    "empty": "Pas de commandes pour le moment",
+    "columns": {
+      "id": "Numéro de commande",
+      "date": "Date",
+      "items": "Articles",
+      "total": "Total",
+      "status": "Statut"
+    }
+  },
+  "wallet": {
+    "title": "Mon portefeuille",
+    "balance": "Solde actuel",
+    "topUp": "Recharger",
+    "history": "Historique des transactions",
+    "empty": "Aucune transaction pour le moment",
+    "columns": {
+      "date": "Date",
+      "type": "Type",
+      "amount": "Montant",
+      "description": "Description"
+    }
+  },
+  "contacts": {
+    "title": "Contacts de domaine",
+    "add": "Ajouter un contact",
+    "empty": "Aucun contact pour le moment",
+    "types": {
+      "registrant": "Propriétaire",
+      "admin": "Admin",
+      "tech": "Technique",
+      "billing": "Facturation"
+    }
+  },
+  "emails": {
+    "title": "Plans e-mail",
+    "empty": "Pas de plans e-mail",
+    "addEmail": "Ajouter un plan e-mail",
+    "columns": {
+      "email": "Adresse e-mail",
+      "plan": "Plan",
+      "status": "Statut",
+      "expires": "Expire"
+    }
+  },
+  "security": {
+    "title": "Paramètres de sécurité",
+    "twoFactor": "Authentification à deux facteurs",
+    "sessions": "Sessions actives",
+    "apiKeys": "Clés API"
+  },
+  "profile": {
+    "title": "Paramètres de profil",
+    "personalInfo": "Informations personnelles",
+    "preferences": "Préférences",
+    "notifications": "Notifications"
+  }
+}

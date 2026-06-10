@@ -1,0 +1,282 @@
+// Prisma Schema — Drave Registry
+// DATABASE_URL     → prisma+postgres://accelerate.prisma-data.net/?api_key=...  (Prisma Accelerate proxy)
+// DIRECT_URL       → postgres://...  (direct connection, used for migrations/db push)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── USERS ────────────────────────────────────────────────────────────────────
+// Mirrors Clerk users. Created/updated via Clerk webhook or on first sign-in.
+model User {
+  id               String   @id @default(cuid())
+  clerkId          String   @unique  // Clerk user ID (user_xxxx)
+  email            String   @unique
+  username         String?
+  firstName        String?
+  lastName         String?
+  balance          Decimal  @default(0) @db.Decimal(10, 2)   // legacy USD field (unused)
+  walletBalanceUsd Decimal  @default(0) @db.Decimal(14, 2)   // USD wallet balance
+  role             UserRole @default(CUSTOMER)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  domains            Domain[]
+  contacts           Contact[]
+  emailSubscriptions EmailSubscription[]
+  orders             Order[]
+  walletTxns         WalletTransaction[]
+
+  @@map("users")
+}
+
+enum UserRole {
+  CUSTOMER
+  CUSTOMER_SERVICE
+  ADMIN
+}
+
+// ─── TLDS & PRICING ───────────────────────────────────────────────────────────
+model Tld {
+  id           String   @id @default(cuid())
+  name         String   @unique  // e.g. "com", "net" (no leading dot)
+  enabled      Boolean  @default(true)
+  // Wholesale costs from Dynadot in USD (per 1 year unless noted by registry)
+  costRegister Decimal? @db.Decimal(10, 2)
+  costRenew    Decimal? @db.Decimal(10, 2)
+  costTransfer Decimal? @db.Decimal(10, 2)
+  costRestore  Decimal? @db.Decimal(10, 2)
+  // Retail prices set by admin in USD
+  priceRegister Decimal? @db.Decimal(10, 2)
+  priceRenew    Decimal? @db.Decimal(10, 2)
+  priceTransfer Decimal? @db.Decimal(10, 2)
+  priceRestore  Decimal? @db.Decimal(10, 2)
+  lastSyncedAt DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("tlds")
+}
+
+// ─── CURRENCIES & EXCHANGE RATES ──────────────────────────────────────────────
+model Currency {
+  id        String   @id @default(cuid())
+  code      String   @unique  // ISO 4217 (e.g. "USD", "EUR")
+  symbol    String              // e.g. "$", "€"
+  name      String              // e.g. "US Dollar"
+  flag      String?             // Emoji
+  // Rate against 1 USD. USD itself is 1.
+  rate      Decimal  @default(1) @db.Decimal(18, 6)
+  enabled   Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("currencies")
+}
+
+// ─── ADMIN AUDIT LOG ──────────────────────────────────────────────────────────
+model AdminAuditLog {
+  id          String   @id @default(cuid())
+  actorClerkId String  // Clerk user id who performed the action
+  actorEmail  String?
+  action      String   // e.g. "tld.sync", "tld.price.update", "currency.rate.update"
+  target      String?  // e.g. tld name or currency code
+  metadata    Json?
+  createdAt   DateTime @default(now())
+
+  @@index([actorClerkId])
+  @@index([createdAt])
+  @@map("admin_audit_log")
+}
+
+// ─── DOMAINS ──────────────────────────────────────────────────────────────────
+model Domain {
+  id                  String       @id @default(cuid())
+  userId              String
+  user                User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  domainName          String       @unique  // e.g. "mybusiness.com"
+  tld                 String                // e.g. "com" (no leading dot)
+  status              DomainStatus @default(ACTIVE)
+  registeredAt        DateTime     @default(now())
+  expiresAt           DateTime
+  autoRenew           Boolean      @default(true)
+  locked              Boolean      @default(true)   // Registrar lock (prevents transfers)
+  privacyOn           Boolean      @default(false)  // WHOIS privacy
+  nameservers         String[]     @default([])
+  registrantContactId String?
+  registrantContact   Contact?     @relation(fields: [registrantContactId], references: [id], onDelete: SetNull)
+  lastSyncedAt        DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  emailSubscriptions EmailSubscription[]
+
+  @@index([userId])
+  @@map("domains")
+}
+
+enum DomainStatus {
+  ACTIVE
+  EXPIRED
+  PENDING_TRANSFER
+  SUSPENDED
+  CANCELLED
+}
+
+// ─── CONTACTS (WHOIS registrant / admin / tech / billing) ─────────────────────
+model Contact {
+  id           String      @id @default(cuid())
+  userId       String
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type         ContactType @default(REGISTRANT)
+  firstName    String
+  lastName     String
+  organization String?
+  email        String
+  phone        String
+  address1     String
+  address2     String?
+  city         String
+  state        String?
+  postalCode   String
+  country      String      // ISO 3166-1 alpha-2 e.g. "NG"
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  domains      Domain[]
+
+  @@index([userId])
+  @@map("contacts")
+}
+
+enum ContactType {
+  REGISTRANT
+  ADMIN
+  TECH
+  BILLING
+}
+
+// ─── EMAIL SUBSCRIPTIONS ──────────────────────────────────────────────────────
+model EmailSubscription {
+  id        String             @id @default(cuid())
+  userId    String
+  user      User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  domainId  String
+  domain    Domain             @relation(fields: [domainId], references: [id], onDelete: Cascade)
+  planName  String             // "Starter", "Business", "Enterprise"
+  accounts  Int                // Number of mailboxes
+  storageGb Int                // Storage per account in GB
+  priceUsd  Decimal            @db.Decimal(10, 2)
+  status    SubscriptionStatus @default(ACTIVE)
+  startsAt  DateTime           @default(now())
+  expiresAt DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("email_subscriptions")
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  EXPIRED
+  CANCELLED
+  SUSPENDED
+}
+
+// ─── ORDERS ───────────────────────────────────────────────────────────────────
+model Order {
+  id              String        @id @default(cuid())
+  userId          String
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type            OrderType
+  description     String
+  amountUsd       Decimal       @db.Decimal(10, 2)        // legacy
+  displayCurrency String        @default("USD")
+  displayAmount   Decimal       @default(0) @db.Decimal(14, 2)
+  settledAmount   Decimal       @default(0) @db.Decimal(14, 2)
+  paymentMethod   PaymentMethod @default(PAYSTACK)
+  paymentRef      String?       @unique
+  currency        String        @default("USD")
+  status          OrderStatus   @default(PENDING)
+  metadata        Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  walletTxns WalletTransaction[]
+
+  @@map("orders")
+}
+
+enum OrderType {
+  DOMAIN_REGISTRATION
+  DOMAIN_RENEWAL
+  DOMAIN_TRANSFER
+  DOMAIN_RESTORE
+  EMAIL_SUBSCRIPTION
+  HOSTING
+  ACCOUNT_CREDIT
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  FULFILLED
+  COMPLETED
+  FAILED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  WALLET
+  PAYSTACK
+  LEMON_SQUEEZY
+  PAYHIP
+}
+
+// ─── WALLET ───────────────────────────────────────────────────────────────────
+model WalletTransaction {
+  id               String        @id @default(cuid())
+  userId           String
+  user             User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type             WalletTxnType
+  amountUsd        Decimal       @db.Decimal(14, 2)
+  balanceAfterUsd  Decimal       @db.Decimal(14, 2)
+  source           WalletTxnSource
+  reference        String?       @unique     // Transaction ref
+  status           WalletTxnStatus @default(SUCCESS)
+  description      String?
+  metadata         Json?
+  orderId          String?
+  order            Order?        @relation(fields: [orderId], references: [id], onDelete: SetNull)
+  createdAt        DateTime      @default(now())
+
+  @@index([userId, createdAt])
+  @@map("wallet_transactions")
+}
+
+enum WalletTxnType {
+  CREDIT
+  DEBIT
+  HOLD
+  RELEASE
+}
+
+enum WalletTxnSource {
+  PAYSTACK
+  ADMIN
+  ORDER
+  REFUND
+}
+
+enum WalletTxnStatus {
+  PENDING
+  SUCCESS
+  FAILED
+}

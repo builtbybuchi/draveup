@@ -1,0 +1,40 @@
+{
+  "badge": "Transferts fluides",
+  "title": "Transférer vers DraveUp",
+  "subtitle": "Consolidez vos domaines, économisez sur les renouvellements et gérez tout depuis un seul tableau de bord intuitif.",
+  "form": {
+    "domainLabel": "Nom de domaine",
+    "domainPlaceholder": "example.com",
+    "authCodeLabel": "Code d'authentification (EPP)",
+    "authCodePlaceholder": "Optionnel pour le moment",
+    "submitButton": "Transférer"
+  },
+  "benefits": {
+    "title": "Pourquoi transférer vers Drave?",
+    "items": [
+      { "title": "Pas d'interruption de service", "desc": "Votre site web reste en ligne pendant le processus de transfert." },
+      { "title": "Conservez le temps restant", "desc": "Tout le temps restant sur votre enregistrement actuel est conservé." },
+      { "title": "Extension gratuite de 1 an", "desc": "Chaque transfert comprend une année d'enregistrement supplémentaire." },
+      { "title": "Protection de la vie privée gratuite", "desc": "Gardez vos informations personnelles cachées de WHOIS." }
+    ]
+  },
+  "pricing": {
+    "title": "Tarification des transferts",
+    "extension": "Extension",
+    "transferPrice": "Prix du transfert",
+    "renewalPrice": "Prix du renouvellement",
+    "includes1yr": "(Comprend 1 an)",
+    "perYear": "/an",
+    "loading": "Chargement des tarifs de transfert...",
+    "notConfigured": "Les tarifs de transfert ne sont pas encore configurés."
+  },
+  "faq": {
+    "title": "Questions fréquemment posées",
+    "items": [
+      { "q": "Combien de temps prend un transfert de domaine?", "a": "Généralement 5 à 7 jours, selon votre registraire actuel." },
+      { "q": "Mon site web sera-t-il indisponible?", "a": "Non! Tant que vous ne changez pas vos serveurs de noms pendant le transfert, votre site web restera en ligne." },
+      { "q": "Qu'est-ce qu'un code d'authentification?", "a": "Également connu sous le nom de code EPP, c'est un mot de passe pour votre domaine que vous obtenez de votre registraire actuel pour prouver que vous le possédez." },
+      { "q": "Vais-je perdre le temps déjà payé?", "a": "Non! Tout le temps restant est transféré vers DraveUp, plus vous obtenez une année supplémentaire." }
+    ]
+  }
+}

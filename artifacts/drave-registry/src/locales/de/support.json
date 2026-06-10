@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "title": "Wir sind hier, um zu helfen",
+    "subtitle": "Expertenunterstützung, 24 Stunden am Tag, 7 Tage die Woche. Echte Menschen, keine Bots.",
+    "badge": "24/7 Live-Support"
+  },
+  "channels": {
+    "title": "Holen Sie sich Hilfe auf Ihre bevorzugte Weise",
+    "chat": { "title": "Live-Chat", "desc": "Sofortige Antworten von unserem Support-Team. Durchschnittliche Antwortzeit: unter 2 Minuten.", "cta": "Chat starten" },
+    "phone": { "title": "Telefon-Support", "desc": "Sprechen Sie direkt mit einem Domain- und Hosting-Experten. 24/7 in mehreren Sprachen verfügbar.", "cta": "Jetzt anrufen" },
+    "ticket": { "title": "Support-Ticket", "desc": "Senden Sie eine detaillierte Anfrage und erhalten Sie innerhalb von 2 Stunden eine gründliche Antwort.", "cta": "Ticket öffnen" },
+    "kb": { "title": "Wissensdatenbank", "desc": "Durchsuchen Sie 1.000+ Artikel, Tutorials und Videoleitfäden in unserem Hilfezentrum.", "cta": "Artikel durchsuchen" }
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "q1": "Wie übertrage ich meine Domain zu DraveUp?",
+    "a1": "Der Transfer ist einfach. Entsperren Sie Ihre Domain bei Ihrem aktuellen Registrar, holen Sie den Autorisierungscode und geben Sie ihn in unser Transfer-Tool ein. Der Prozess dauert 5–7 Tage.",
+    "q2": "Welche Zahlungsmethoden akzeptieren Sie?",
+    "a2": "Wir akzeptieren Visa, Mastercard, American Express, PayPal, Banküberweisungen und viele lokale Zahlungsmethoden je nach Region.",
+    "q3": "Kann ich eine Rückerstattung erhalten, wenn ich nicht zufrieden bin?",
+    "a3": "Ja. Wir bieten eine 30-Tage-Geld-zurück-Garantie auf Hosting-Pläne und ein 5-Tage-Rückerstattungsfenster auf Domains.",
+    "q4": "Bieten Sie Domain-Datenschutz kostenlos an?",
+    "a4": "Ja! WHOIS-Datenschutz ist ohne zusätzliche Kosten bei allen berechtigten Domain-Registrierungen enthalten.",
+    "q5": "Wie verbinde ich meine Domain mit meiner Website?",
+    "a5": "Melden Sie sich in Ihrem Kundenbereich an, gehen Sie zu DNS-Verwaltung und aktualisieren Sie Ihre Nameserver oder A-Records. Wir bieten Schritt-für-Schritt-Anleitungen für jeden großen Hosting-Anbieter.",
+    "q6": "Bieten Sie Reseller-Programme an?",
+    "a6": "Ja. Wir bieten White-Label-Reseller-Hosting und Domain-Reselling-Programme. Kontaktieren Sie unser Vertriebsteam, um mehr zu erfahren."
+  },
+  "status": {
+    "title": "Systemstatus",
+    "operational": "Alle Systeme betriebsbereit",
+    "subtitle": "Überprüfen Sie den Echtzeit-Status aller Drave-Dienste."
+  },
+  "cta": {
+    "title": "Brauchen Sie noch Hilfe?",
+    "subtitle": "Unsere Experten stehen bereit. Lassen Sie ein technisches Problem Ihr Unternehmen nicht verlangsamen.",
+    "button": "Support kontaktieren"
+  }
+}

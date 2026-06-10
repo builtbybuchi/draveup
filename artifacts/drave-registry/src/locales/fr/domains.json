@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "title": "Trouvez votre domaine parfait",
+    "subtitle": "Recherchez parmi 500+ extensions et réclamez votre identité numérique aujourd'hui.",
+    "badge": "500+ Extensions de domaine"
+  },
+  "results": {
+    "title": "Résultats pour",
+    "available": "Disponible !",
+    "taken": "Pris",
+    "firstYear": "pour la première année",
+    "suggested": "Alternatives suggérées"
+  },
+  "pricing": {
+    "title": "Tarification transparente",
+    "subtitle": "Pas de frais cachés. Pas de renouvellements surprises. Des prix honnêtes.",
+    "extension": "Extension",
+    "firstYear": "1ère année",
+    "renewal": "Renouvellement",
+    "transfer": "Transfert",
+    "register": "Enregistrer"
+  },
+  "features": {
+    "title": "Chaque domaine inclut",
+    "privacy": { "title": "Confidentialité WHOIS gratuite", "desc": "Gardez vos informations personnelles cachées des recherches WHOIS publiques — inclus gratuitement." },
+    "lock": { "title": "Verrouillage de domaine", "desc": "Empêchez les transferts non autorisés avec notre système de verrouillage multicouche." },
+    "dns": { "title": "DNS Premium", "desc": "Résolution DNS ultra-rapide sur 150+ points de présence mondiaux." },
+    "forwarding": { "title": "Redirection d'URL", "desc": "Redirigez votre domaine vers n'importe quelle URL, avec ou sans masquage." },
+    "dnssec": { "title": "DNSSEC", "desc": "Protégez votre domaine contre l'usurpation DNS et l'empoisonnement du cache." },
+    "support": { "title": "Support 24h/24", "desc": "Aide experte disponible en permanence par chat, téléphone ou ticket." }
+  },
+  "transfer": {
+    "title": "Transférez votre domaine vers Drave",
+    "subtitle": "Déplacez vos domaines existants chez nous et bénéficiez de meilleurs prix, de la confidentialité gratuite et d'outils de gestion supérieurs.",
+    "step1": "Vérifier l'éligibilité au transfert",
+    "step2": "Déverrouiller votre domaine chez le registrar actuel",
+    "step3": "Saisir le code d'autorisation",
+    "step4": "Approuver le transfert",
+    "cta": "Commencer le transfert"
+  },
+  "whois": {
+    "title": "Recherche WHOIS",
+    "subtitle": "Recherchez les détails d'enregistrement de n'importe quel domaine.",
+    "placeholder": "Saisir un nom de domaine...",
+    "button": "Rechercher",
+    "label": "WHOIS"
+  },
+  "bulk": {
+    "title": "Recherche de domaines en masse",
+    "subtitle": "Vérifiez la disponibilité de centaines de domaines à la fois.",
+    "cta": "Recherche en masse"
+  }
+}

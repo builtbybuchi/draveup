@@ -1,0 +1,113 @@
+{
+  "sidebar": {
+    "overview": "Overview",
+    "myDomains": "My Domains",
+    "transfers": "Transfers",
+    "orders": "Orders",
+    "wallet": "Wallet",
+    "contacts": "Contacts",
+    "emailPlans": "Email Plans",
+    "whoisLookup": "WHOIS Lookup",
+    "security": "Security",
+    "profile": "Profile"
+  },
+  "overview": {
+    "activeDomains": "Active Domains",
+    "pendingTransfers": "Pending Transfers",
+    "nextRenewal": "Next Renewal",
+    "walletBalance": "Wallet Balance",
+    "none": "None"
+  },
+  "domains": {
+    "title": "My Domains",
+    "empty": "No domains yet",
+    "search": "Search...",
+    "columns": {
+      "name": "Domain Name",
+      "status": "Status",
+      "registrar": "Registrar",
+      "expires": "Expires",
+      "actions": "Actions"
+    },
+    "actions": {
+      "manage": "Manage",
+      "renew": "Renew",
+      "transfer": "Transfer",
+      "delete": "Delete"
+    },
+    "status": {
+      "active": "Active",
+      "expired": "Expired",
+      "pending": "Pending Transfer",
+      "suspended": "Suspended"
+    }
+  },
+  "transfers": {
+    "title": "Domain Transfers",
+    "empty": "No active transfers",
+    "columns": {
+      "domain": "Domain",
+      "status": "Status",
+      "progress": "Progress",
+      "eTA": "ETA"
+    }
+  },
+  "orders": {
+    "title": "Order History",
+    "empty": "No orders yet",
+    "columns": {
+      "id": "Order ID",
+      "date": "Date",
+      "items": "Items",
+      "total": "Total",
+      "status": "Status"
+    }
+  },
+  "wallet": {
+    "title": "My Wallet",
+    "balance": "Current Balance",
+    "topUp": "Top Up",
+    "history": "Transaction History",
+    "empty": "No transactions yet",
+    "columns": {
+      "date": "Date",
+      "type": "Type",
+      "amount": "Amount",
+      "description": "Description"
+    }
+  },
+  "contacts": {
+    "title": "Domain Contacts",
+    "add": "Add Contact",
+    "empty": "No contacts yet",
+    "types": {
+      "registrant": "Registrant",
+      "admin": "Admin",
+      "tech": "Technical",
+      "billing": "Billing"
+    }
+  },
+  "emails": {
+    "title": "Email Plans",
+    "empty": "No email plans",
+    "addEmail": "Add Email Plan",
+    "columns": {
+      "email": "Email Address",
+      "plan": "Plan",
+      "status": "Status",
+      "expires": "Expires"
+    }
+  },
+  "security": {
+    "title": "Security Settings",
+    "twoFactor": "Two-Factor Authentication",
+    "sessions": "Active Sessions",
+    "apiKeys": "API Keys"
+  },
+  "profile": {
+    "title": "Profile Settings",
+    "personalInfo": "Personal Information",
+    "preferences": "Preferences",
+    "notifications": "Notifications"
+  }
+}

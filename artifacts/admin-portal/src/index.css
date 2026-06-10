@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  background: #f7f9fc;
+  color: #0f172a;
+}
+
+button { cursor: pointer; }

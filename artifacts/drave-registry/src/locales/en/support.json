@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "title": "We're here to help",
+    "subtitle": "Expert support, 24 hours a day, 7 days a week. Real humans, not bots.",
+    "badge": "24/7 Live Support"
+  },
+  "channels": {
+    "title": "Get help the way you prefer",
+    "chat": { "title": "Live Chat", "desc": "Instant answers from our support team. Average response time: under 2 minutes.", "cta": "Start Chat" },
+    "phone": { "title": "Phone Support", "desc": "Speak directly with a domain and hosting expert. Available 24/7 in multiple languages.", "cta": "Call Now" },
+    "ticket": { "title": "Support Ticket", "desc": "Submit a detailed request and get a thorough response within 2 hours.", "cta": "Open Ticket" },
+    "kb": { "title": "Knowledge Base", "desc": "Browse 1,000+ articles, tutorials, and video guides in our help center.", "cta": "Browse Articles" }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "q1": "How do I transfer my domain to DraveUp?",
+    "a1": "Transferring is easy. Unlock your domain at your current registrar, get the auth code, and enter it in our transfer tool. The process takes 5–7 days.",
+    "q2": "What payment methods do you accept?",
+    "a2": "We accept Visa, Mastercard, American Express, PayPal, bank transfers, and many local payment methods depending on your region.",
+    "q3": "Can I get a refund if I'm not satisfied?",
+    "a3": "Yes. We offer a 30-day money-back guarantee on hosting plans and a 5-day refund window on domains.",
+    "q4": "Do you offer domain privacy for free?",
+    "a4": "Yes! WHOIS privacy protection is included at no extra charge on all eligible domain registrations.",
+    "q5": "How do I connect my domain to my website?",
+    "a5": "Log in to your Client Area, go to DNS Management, and update your nameservers or A records. We provide step-by-step guides for every major hosting provider.",
+    "q6": "Do you offer reseller programs?",
+    "a6": "Yes. We offer white-label reseller hosting and domain reselling programs. Contact our sales team to learn more."
+  },
+  "status": {
+    "title": "System Status",
+    "operational": "All Systems Operational",
+    "subtitle": "Check real-time status of all Drave services."
+  },
+  "cta": {
+    "title": "Still need help?",
+    "subtitle": "Our experts are standing by. Don't let a technical issue slow down your business.",
+    "button": "Contact Support"
+  }
+}

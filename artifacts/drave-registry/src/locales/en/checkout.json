@@ -1,0 +1,51 @@
+{
+  "pageTitle": "Checkout",
+  "loginRequired": {
+    "title": "Login Required",
+    "desc": "Please log in or create an account to complete your purchase. Your cart will be saved.",
+    "button": "Log In to Continue"
+  },
+  "orderConfirmed": {
+    "title": "Order Confirmed!",
+    "desc": "Your payment was received and your services are being activated.",
+    "button": "Go to Dashboard"
+  },
+  "emptyCart": {
+    "title": "Your cart is empty",
+    "desc": "Add some domains or email plans to get started.",
+    "button": "Search Domains"
+  },
+  "account": {
+    "label": "Account",
+    "loggedIn": "Logged In"
+  },
+  "payment": {
+    "label": "Payment Method",
+    "wallet": "DraveUp Wallet",
+    "walletDesc": "Pay directly from your wallet balance",
+    "squadco": "Card Payment (Squadco)",
+    "squadcoDesc": "Pay securely by card (Visa, Mastercard, etc.)",
+    "secure": "Secure 256-bit SSL checkout"
+  },
+  "summary": {
+    "title": "Order Summary",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "total": "Total",
+    "placeOrder": "Place Order",
+    "placing": "Placing order...",
+    "loginToCheckout": "Login to Checkout",
+    "insufficientFunds": "Insufficient wallet balance. Top up or use another payment method."
+  },
+  "domainType": {
+    "domain": "Domain",
+    "emailPlan": "Email Plan",
+    "transfer": "Transfer"
+  },
+  "cartSummary": {
+    "cart": "Your Cart",
+    "empty": "Your cart is empty",
+    "emptyDesc": "Search for a domain to get started",
+    "searchBtn": "Search Domains"
+  }
+}

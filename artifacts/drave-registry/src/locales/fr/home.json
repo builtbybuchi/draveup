@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "title": "Votre solution complète de présence en ligne",
+    "subtitle": "Domaines, e-mails, outils de productivité et sécurité — tout ce dont vous avez besoin pour établir et protéger votre identité en ligne."
+  },
+  "services": {
+    "title": "Des services fiables",
+    "subtitle": "Tout ce dont vous avez besoin pour construire votre présence en ligne.",
+    "domains": {
+      "title": "Noms de domaine",
+      "subtitle": "Trouvez le nom de domaine parfait pour votre entreprise",
+      "description": "Choisissez parmi plus de 500 extensions et enregistrez votre domaine préféré à des prix transparents. Gérez tous vos domaines depuis un tableau de bord intuitif avec protection WHOIS gratuite à vie.",
+      "benefit1": "Plus de 500 extensions disponibles",
+      "benefit2": "Tarifs transparents et compétitifs",
+      "benefit3": "Protection de la vie privée WHOIS gratuite",
+      "benefit4": "Activation instantanée du domaine",
+      "cta": "Rechercher des domaines"
+    },
+    "email": {
+      "title": "E-mail professionnel",
+      "subtitle": "Adresses e-mail personnalisées pour votre domaine",
+      "description": "Créez des comptes de messagerie professionnels correspondant à votre nom de domaine. Impressionnez vos clients avec des adresses e-mail qui renforcent la crédibilité de votre entreprise.",
+      "benefit1": "Comptes e-mail @votredomaine.com",
+      "benefit2": "Plusieurs options de forfaits",
+      "benefit3": "Configuration et gestion faciles",
+      "benefit4": "Support toujours disponible",
+      "cta": "Obtenir le service e-mail"
+    },
+    "googleWorkspace": {
+      "title": "Google Workspace",
+      "subtitle": "Outils de productivité et de collaboration",
+      "description": "Optimisez les opérations de votre entreprise avec Google Workspace. Obtenez Gmail, Drive, Docs, Meet et bien plus encore — le tout intégré à votre domaine.",
+      "benefit1": "Gmail avec e-mail de domaine",
+      "benefit2": "100 Go de stockage cloud",
+      "benefit3": "Visioconférence avec Google Meet",
+      "benefit4": "Documents collaboratifs",
+      "cta": "Acheter Google Workspace"
+    },
+    "security": {
+      "title": "Sécurité avancée",
+      "subtitle": "Protégez votre site et les données clients",
+      "description": "Sécurisez votre site avec l'analyse de malwares SiteLock et des certificats SSL avancés. Ayez l'esprit tranquille en sachant que votre site est protégé.",
+      "benefit1": "Analyse de malwares SiteLock",
+      "benefit2": "Certificats SSL avancés",
+      "benefit3": "Surveillance de sécurité 24/7",
+      "benefit4": "Support de conformité PCI",
+      "cta": "Sécurisez votre site"
+    }
+  },
+  "pricing": {
+    "title": "Tarifs transparents des domaines",
+    "subtitle": "Choisissez parmi des centaines d'extensions à des tarifs compétitifs, sans frais cachés."
+  },
+  "faq": {
+    "title": "Foire aux questions",
+    "items": [
+      { "q": "Qu'est-ce que DraveUp ?", "a": "DraveUp est un bureau d'enregistrement de noms de domaine accrédité par l'ICANN. Nous proposons l'enregistrement de domaines, des transferts, des recherches WHOIS et un hébergement de messagerie professionnel — le tout à des prix transparents et coûtant." },
+      { "q": "Pourquoi enregistrer un domaine avec Drave ?", "a": "Nous vous faisons profiter d'économies avec des prix coûtants sur les extensions populaires. Vous bénéficiez également d'une protection WHOIS gratuite à vie, d'un tableau de bord convivial et d'un support expert." },
+      { "q": "Comment fonctionne l'enregistrement de domaine ?", "a": "Recherchez le nom de domaine souhaité, ajoutez-le à votre panier et validez votre commande. Votre domaine est activé en quelques minutes et vous recevrez un e-mail de confirmation." },
+      { "q": "Comment gérer mon domaine après l'achat ?", "a": "Connectez-vous à votre tableau de bord DraveUp pour gérer les paramètres DNS, configurer les serveurs de noms, renouveler votre domaine, configurer des forfaits de messagerie et bien plus encore — le tout au même endroit." }
+    ]
+  },
+  "finalCta": {
+    "title": "DraveUp a porté l'enregistrement de domaines à un niveau supérieur !",
+    "subtitle": "Rejoignez des millions de propriétaires de domaines qui font confiance à DraveUp."
+  }
+}

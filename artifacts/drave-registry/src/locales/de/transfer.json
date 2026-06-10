@@ -1,0 +1,40 @@
+{
+  "badge": "Nahtlose Übertragungen",
+  "title": "Zu DraveUp wechseln",
+  "subtitle": "Konsolidieren Sie Ihre Domains, sparen Sie bei Verlängerungen und verwalten Sie alles über ein einziges intuitives Dashboard.",
+  "form": {
+    "domainLabel": "Domain-Name",
+    "domainPlaceholder": "example.com",
+    "authCodeLabel": "Authentifizierungscode (EPP)",
+    "authCodePlaceholder": "Optional für jetzt",
+    "submitButton": "Übertragen"
+  },
+  "benefits": {
+    "title": "Warum zu Drave wechseln?",
+    "items": [
+      { "title": "Keine Ausfallzeiten", "desc": "Ihre Website bleibt während des Übertragungsvorgangs online." },
+      { "title": "Verbleibende Zeit behalten", "desc": "Jede auf Ihrer aktuellen Registrierung verbleibende Zeit wird beibehalten." },
+      { "title": "Kostenlose 1-Jahres-Verlängerung", "desc": "Jede Übertragung beinhaltet ein zusätzliches Jahr Registrierung." },
+      { "title": "Kostenloser Datenschutz", "desc": "Halten Sie Ihre persönlichen Informationen vor WHOIS verborgen." }
+    ]
+  },
+  "pricing": {
+    "title": "Übertragungstarife",
+    "extension": "Erweiterung",
+    "transferPrice": "Übertragungspreis",
+    "renewalPrice": "Verlängerungspreis",
+    "includes1yr": "(Enthält 1 Jahr)",
+    "perYear": "/Jahr",
+    "loading": "Laden der Übertragungstarife…",
+    "notConfigured": "Übertragungstarife noch nicht konfiguriert."
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "items": [
+      { "q": "Wie lange dauert eine Domain-Übertragung?", "a": "Normalerweise 5-7 Tage, je nach Ihrem aktuellen Registrar." },
+      { "q": "Wird meine Website ausfallen?", "a": "Nein! Solange Sie Ihre Nameserver während der Übertragung nicht ändern, bleibt Ihre Website online." },
+      { "q": "Was ist ein Authentifizierungscode?", "a": "Auch als EPP-Code bekannt, ist es ein Passwort für Ihre Domain, das Sie von Ihrem aktuellen Registrar erhalten, um nachzuweisen, dass Sie sie besitzen." },
+      { "q": "Verliere ich die bereits bezahlte Zeit?", "a": "Nein! Jede verbleibende Zeit wird zu DraveUp übertragen, plus Sie erhalten ein zusätzliches Jahr." }
+    ]
+  }
+}

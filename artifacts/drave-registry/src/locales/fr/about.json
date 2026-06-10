@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "title": "À propos de DraveUp",
+    "subtitle": "Fondée par des entrepreneurs frustrés par les bureaux d'enregistrement de domaines trop chers et trop complexes. Nous avons décidé de construire celui que nous avions toujours voulu.",
+    "badge": "Bureau d'enregistrement accrédité ICANN"
+  },
+  "mission": {
+    "title": "Notre mission",
+    "desc": "Rendre l'établissement d'une présence professionnelle en ligne simple, abordable et accessible à tous — des entrepreneurs débutants aux grandes entreprises mondiales."
+  },
+  "story": {
+    "title": "Notre histoire",
+    "p1": "DraveUp a été fondée en 2026 par une équipe d'ingénieurs et d'entrepreneurs fatigués de naviguer dans des bureaux d'enregistrement trop chers et confus qui cachaient chaque produit derrière des schémas sombres et des ventes additionnelles.",
+    "p2": "Nous avons construit Drave depuis zéro avec un seul engagement : tarification transparente, technologie de pointe et support client authentique. Pas d'astuces, pas de frais cachés, pas de renouvellements automatiques sans votre accord.",
+    "p3": "Aujourd'hui, DraveUp gère des millions de domaines dans 150+ pays, et nous ne faisons que commencer."
+  },
+  "stats": {
+    "domains": { "value": "10M+", "label": "Domaines gérés" },
+    "customers": { "value": "500K+", "label": "Clients dans le monde" },
+    "countries": { "value": "150+", "label": "Pays desservis" },
+    "uptime": { "value": "99,9%", "label": "Garantie de disponibilité" }
+  },
+  "values": {
+    "title": "Nos valeurs",
+    "v1": { "title": "Transparence", "desc": "Pas de frais cachés, pas de renouvellements surprises. Chaque prix est exactement ce que vous paierez — aujourd'hui et au renouvellement." },
+    "v2": { "title": "Fiabilité", "desc": "Nous exploitons une infrastructure redondante de niveau entreprise avec un SLA de disponibilité de 99,9% financièrement soutenu." },
+    "v3": { "title": "Client d'abord", "desc": "Notre équipe de support est composée de vrais experts en domaines et hébergement — disponibles 24h/24 en plusieurs langues." },
+    "v4": { "title": "Innovation", "desc": "Nous investissons continuellement dans des outils de nouvelle génération comme notre créateur de site IA pour garder votre entreprise en avance." }
+  },
+  "team": {
+    "title": "Équipe de direction",
+    "join": "Rejoindre notre équipe",
+    "careers": "Nous recrutons en ingénierie, support et croissance. Voir les postes ouverts."
+  },
+  "cta": {
+    "title": "Prêt à commencer ?",
+    "button": "Rechercher votre domaine"
+  }
+}

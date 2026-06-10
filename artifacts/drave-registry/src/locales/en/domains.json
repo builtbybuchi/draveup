@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "title": "Find Your Perfect Domain",
+    "subtitle": "Search over 500 extensions and claim your digital identity today.",
+    "badge": "500+ Domain Extensions"
+  },
+  "results": {
+    "title": "Results for",
+    "available": "Available!",
+    "taken": "Taken",
+    "firstYear": "for the first year",
+    "suggested": "Suggested Alternatives"
+  },
+  "pricing": {
+    "title": "Transparent Pricing",
+    "subtitle": "No hidden fees. No surprise renewals. Just honest pricing.",
+    "extension": "Extension",
+    "firstYear": "1st Year",
+    "renewal": "Renewal",
+    "transfer": "Transfer",
+    "register": "Register"
+  },
+  "features": {
+    "title": "Every domain comes with",
+    "privacy": { "title": "Free WHOIS Privacy", "desc": "Keep your personal information hidden from public WHOIS lookups — included free on all eligible domains." },
+    "lock": { "title": "Domain Lock", "desc": "Prevent unauthorized transfers with our multi-layer domain locking system." },
+    "dns": { "title": "Premium DNS", "desc": "Lightning-fast DNS resolution across 150+ global points of presence." },
+    "forwarding": { "title": "URL Forwarding", "desc": "Redirect your domain to any URL, with or without masking." },
+    "dnssec": { "title": "DNSSEC", "desc": "Protect your domain from DNS spoofing and cache poisoning attacks." },
+    "support": { "title": "24/7 Support", "desc": "Expert help available around the clock via chat, phone, or ticket." }
+  },
+  "transfer": {
+    "title": "Transfer Your Domain to Drave",
+    "subtitle": "Move your existing domains to us and get better pricing, free privacy, and superior management tools.",
+    "step1": "Check transfer eligibility",
+    "step2": "Unlock your domain at current registrar",
+    "step3": "Enter authorization code",
+    "step4": "Approve the transfer",
+    "cta": "Start Transfer"
+  },
+  "whois": {
+    "title": "WHOIS Lookup",
+    "subtitle": "Look up the registration details for any domain.",
+    "placeholder": "Enter any domain name...",
+    "button": "Lookup",
+    "label": "WHOIS"
+  },
+  "bulk": {
+    "title": "Bulk Domain Search",
+    "subtitle": "Check availability for hundreds of domains at once.",
+    "cta": "Bulk Search"
+  }
+}

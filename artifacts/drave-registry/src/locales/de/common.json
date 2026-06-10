@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "domains": "Domains",
+    "website": "Website-Builder",
+    "hosting": "Hosting",
+    "email": "E-Mail",
+    "security": "Sicherheit",
+    "support": "Hilfe",
+    "clientArea": "Kundenbereich",
+    "login": "Anmelden"
+  },
+  "footer": {
+    "tagline": "Wir helfen Einzelpersonen und Unternehmen, ihre Online-Präsenz aufzubauen.",
+    "products": "Produkte",
+    "company": "Unternehmen",
+    "support": "Hilfe",
+    "legal": "Rechtliches",
+    "domainNames": "Domain-Namen",
+    "aiBuilder": "KI-Website-Builder",
+    "webHosting": "Web-Hosting",
+    "wordpressHosting": "WordPress-Hosting",
+    "professionalEmail": "Professionelle E-Mail",
+    "sslCerts": "SSL-Zertifikate",
+    "aboutUs": "Über uns",
+    "careers": "Karriere",
+    "contactUs": "Kontakt",
+    "affiliates": "Affiliates",
+    "partners": "Partner",
+    "helpCenter": "Hilfezentrum",
+    "productSupport": "Produktsupport",
+    "systemStatus": "Systemstatus",
+    "reportAbuse": "Missbrauch melden",
+    "communityForums": "Community-Foren",
+    "terms": "Nutzungsbedingungen",
+    "privacy": "Datenschutzerklärung",
+    "trustCenter": "Trust Center",
+    "whoisPolicy": "WHOIS-Richtlinie",
+    "cookiePolicy": "Cookie-Richtlinie",
+    "copyright": "© 2026 Drave Registry. Alle Rechte vorbehalten.",
+    "icann": "ICANN-AKKREDITIERT",
+    "ssl": "SSL-GESICHERT"
+  },
+  "search": {
+    "placeholder": "Finden Sie Ihren perfekten Domainnamen...",
+    "button": "Suchen",
+    "tld": ".com",
+    "perYear": "/Jahr",
+    "perMonth": "/Monat"
+  },
+  "trust": {
+    "domains": "10M+ Domains",
+    "customers": "500K+ Kunden",
+    "uptime": "99,9% Betriebszeit",
+    "countries": "150+ Länder",
+    "domainsLabel": "Verwaltete Domains",
+    "customersLabel": "Zufriedene Kunden",
+    "uptimeLabel": "Betriebszeitgarantie",
+    "countriesLabel": "Bediente Länder"
+  },
+  "cta": {
+    "getStarted": "Loslegen",
+    "learnMore": "Mehr erfahren",
+    "viewPlans": "Pläne ansehen",
+    "addToCart": "In den Warenkorb",
+    "choosePlan": "Plan wählen",
+    "selectPlan": "Auswählen",
+    "tryFree": "Kostenlos testen",
+    "contactSales": "Vertrieb kontaktieren"
+  }
+}

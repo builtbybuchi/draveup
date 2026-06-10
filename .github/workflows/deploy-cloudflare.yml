@@ -1,0 +1,83 @@
+name: Deploy Cloudflare Workers
+
+on:
+  push:
+    branches:
+      - "**"
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: "Deployment stage"
+        required: true
+        type: choice
+        options:
+          - stg
+          - prd
+        default: stg
+
+concurrency:
+  group: cloudflare-workers-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-staging:
+    if: (github.event_name == 'workflow_dispatch' && inputs.stage == 'stg') || (github.event_name == 'push' && github.ref != 'refs/heads/main')
+    runs-on: ubuntu-latest
+    environment: stg
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.26.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v3
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Deploy staging
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+          APPWRITE_SETUP_COMMAND: ${{ vars.APPWRITE_SETUP_COMMAND }}
+        run: doppler run --project draveup --config stg -- node scripts/deploy-cloudflare.mjs stg
+
+  deploy-production:
+    if: (github.event_name == 'workflow_dispatch' && inputs.stage == 'prd') || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    environment: prd
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.26.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install Doppler CLI
+        uses: dopplerhq/cli-action@v3
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Deploy production
+        env:
+          DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+          APPWRITE_SETUP_COMMAND: ${{ vars.APPWRITE_SETUP_COMMAND }}
+        run: doppler run --project draveup --config prd -- node scripts/deploy-cloudflare.mjs prd

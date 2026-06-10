@@ -1,0 +1,33 @@
+{
+  "name": "@workspace/admin-portal",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --config vite.config.ts --host 0.0.0.0",
+    "build": "vite build --config vite.config.ts",
+    "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@clerk/react": "^6.1.4",
+    "@tanstack/react-query": "^5.66.5",
+    "lucide-react": "^0.475.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "wouter": "^3.7.1"
+  },
+  "devDependencies": {
+    "@replit/vite-plugin-cartographer": "*",
+    "@replit/vite-plugin-dev-banner": "*",
+    "@replit/vite-plugin-runtime-error-modal": "*",
+    "@tailwindcss/vite": "^4.1.0",
+    "@types/node": "^22.7.4",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.7.2",
+    "vite": "^7.3.1"
+  }
+}

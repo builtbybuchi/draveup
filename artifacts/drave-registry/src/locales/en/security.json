@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "title": "Enterprise-Grade Security",
+    "subtitle": "Protect your website, customers, and reputation with our comprehensive security suite.",
+    "badge": "256-bit Encryption"
+  },
+  "ssl": {
+    "title": "SSL Certificates",
+    "subtitle": "Encrypt your website and build customer trust with HTTPS.",
+    "dv": { "name": "Domain Validated", "desc": "Basic encryption for personal sites and blogs." },
+    "ov": { "name": "Organization Validated", "desc": "Enhanced trust for business websites." },
+    "ev": { "name": "Extended Validation", "desc": "Maximum trust for e-commerce and enterprise." },
+    "wildcard": { "name": "Wildcard SSL", "desc": "Secure unlimited subdomains with one certificate." }
+  },
+  "features": {
+    "title": "Complete security suite",
+    "f1": { "title": "SSL/TLS Encryption", "desc": "256-bit encryption protects data in transit between your server and visitors." },
+    "f2": { "title": "DNSSEC", "desc": "Prevent DNS hijacking and cache poisoning with cryptographic authentication." },
+    "f3": { "title": "DDoS Protection", "desc": "Automatically mitigate distributed denial-of-service attacks before they reach you." },
+    "f4": { "title": "Web Application Firewall", "desc": "Block SQL injection, XSS, and other common web attacks in real time." },
+    "f5": { "title": "Malware Scanning", "desc": "Daily automated scans detect and alert you to any threats immediately." },
+    "f6": { "title": "WHOIS Privacy", "desc": "Keep your personal registration information hidden from the public WHOIS database." }
+  },
+  "trust": {
+    "title": "Trusted security signals for your visitors",
+    "green": "Green padlock in browser",
+    "https": "HTTPS in your URL",
+    "badge": "Trust seal for checkout pages"
+  },
+  "cta": {
+    "title": "Secure your website today",
+    "subtitle": "Don't leave your visitors' data unprotected. SSL certificates start at just $0 with eligible hosting plans.",
+    "button": "Get SSL Certificate"
+  }
+}

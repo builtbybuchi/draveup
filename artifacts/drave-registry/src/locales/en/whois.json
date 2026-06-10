@@ -1,0 +1,31 @@
+{
+  "title": "WHOIS Lookup",
+  "subtitle": "Find out who owns a domain, when it expires, and other public registration details.",
+  "form": {
+    "placeholder": "Enter a domain name (e.g., example.com)",
+    "searchButton": "Search",
+    "searching": "Searching..."
+  },
+  "result": {
+    "registrarInfo": "Registrar Info",
+    "importantDates": "Important Dates",
+    "nameServers": "Name Servers",
+    "rawWhois": "Raw WHOIS Data",
+    "registered": "Registered",
+    "expires": "Expires",
+    "updated": "Updated",
+    "status": "Not registered",
+    "statusUnavailable": "WHOIS unavailable"
+  },
+  "info": {
+    "title": "What is WHOIS?",
+    "text": "WHOIS is a widely used internet record listing that identifies who owns a domain and how to get in contact with them. The Internet Corporation for Assigned Names and Numbers (ICANN) regulates domain name registration and ownership.",
+    "useTitle": "Why use this tool?",
+    "useItems": [
+      "Find out when a domain is expiring",
+      "Contact domain owners for purchase inquiries",
+      "Check where a domain's DNS is hosted",
+      "Investigate abuse or malicious domains"
+    ]
+  }
+}

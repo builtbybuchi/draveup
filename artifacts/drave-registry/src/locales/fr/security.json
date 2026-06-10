@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "title": "Sécurité de niveau entreprise",
+    "subtitle": "Protégez votre site web, vos clients et votre réputation avec notre suite de sécurité complète.",
+    "badge": "Chiffrement 256 bits"
+  },
+  "ssl": {
+    "title": "Certificats SSL",
+    "subtitle": "Chiffrez votre site web et établissez la confiance des clients avec HTTPS.",
+    "dv": { "name": "Validation de domaine", "desc": "Chiffrement de base pour les sites personnels et les blogs." },
+    "ov": { "name": "Validation d'organisation", "desc": "Confiance renforcée pour les sites d'entreprise." },
+    "ev": { "name": "Validation étendue", "desc": "Confiance maximale pour le e-commerce et les entreprises." },
+    "wildcard": { "name": "SSL Wildcard", "desc": "Sécurisez des sous-domaines illimités avec un seul certificat." }
+  },
+  "features": {
+    "title": "Suite de sécurité complète",
+    "f1": { "title": "Chiffrement SSL/TLS", "desc": "Le chiffrement 256 bits protège les données en transit entre votre serveur et les visiteurs." },
+    "f2": { "title": "DNSSEC", "desc": "Prévenez le détournement de DNS et l'empoisonnement du cache par authentification cryptographique." },
+    "f3": { "title": "Protection DDoS", "desc": "Atténuez automatiquement les attaques par déni de service distribué avant qu'elles ne vous atteignent." },
+    "f4": { "title": "Pare-feu d'application web", "desc": "Bloquez les injections SQL, XSS et autres attaques web courantes en temps réel." },
+    "f5": { "title": "Analyse de logiciels malveillants", "desc": "Des analyses automatisées quotidiennes détectent et vous alertent immédiatement de toute menace." },
+    "f6": { "title": "Confidentialité WHOIS", "desc": "Gardez vos informations d'enregistrement personnelles cachées de la base de données WHOIS publique." }
+  },
+  "trust": {
+    "title": "Signaux de confiance pour vos visiteurs",
+    "green": "Cadenas vert dans le navigateur",
+    "https": "HTTPS dans votre URL",
+    "badge": "Badge de confiance pour les pages de paiement"
+  },
+  "cta": {
+    "title": "Sécurisez votre site web aujourd'hui",
+    "subtitle": "Ne laissez pas les données de vos visiteurs non protégées. Les certificats SSL commencent à 0€ avec les plans d'hébergement éligibles.",
+    "button": "Obtenir un certificat SSL"
+  }
+}

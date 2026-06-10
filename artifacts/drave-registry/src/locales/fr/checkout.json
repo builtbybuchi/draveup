@@ -1,0 +1,51 @@
+{
+  "pageTitle": "Paiement",
+  "loginRequired": {
+    "title": "Connexion requise",
+    "desc": "Veuillez vous connecter ou créer un compte pour finaliser votre achat. Votre panier sera sauvegardé.",
+    "button": "Se connecter pour continuer"
+  },
+  "orderConfirmed": {
+    "title": "Commande confirmée!",
+    "desc": "Votre paiement a été reçu et vos services sont en cours d'activation.",
+    "button": "Aller au tableau de bord"
+  },
+  "emptyCart": {
+    "title": "Votre panier est vide",
+    "desc": "Ajoutez des domaines ou des plans e-mail pour commencer.",
+    "button": "Rechercher des domaines"
+  },
+  "account": {
+    "label": "Compte",
+    "loggedIn": "Connecté"
+  },
+  "payment": {
+    "label": "Mode de paiement",
+    "wallet": "Portefeuille DraveUp",
+    "walletDesc": "Payez directement à partir de votre solde de portefeuille",
+    "squadco": "Paiement par carte (Squadco)",
+    "squadcoDesc": "Payez en toute sécurité par carte (Visa, Mastercard, etc.)",
+    "secure": "Paiement sécurisé SSL 256 bits"
+  },
+  "summary": {
+    "title": "Résumé de la commande",
+    "subtotal": "Sous-total",
+    "tax": "Taxe",
+    "total": "Total",
+    "placeOrder": "Placer la commande",
+    "placing": "Placement de la commande...",
+    "loginToCheckout": "Se connecter pour payer",
+    "insufficientFunds": "Solde de portefeuille insuffisant. Recharger ou utiliser un autre mode de paiement."
+  },
+  "domainType": {
+    "domain": "Domaine",
+    "emailPlan": "Plan e-mail",
+    "transfer": "Transfert"
+  },
+  "cartSummary": {
+    "cart": "Votre panier",
+    "empty": "Votre panier est vide",
+    "emptyDesc": "Recherchez un domaine pour commencer",
+    "searchBtn": "Rechercher des domaines"
+  }
+}

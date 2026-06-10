@@ -1,0 +1,70 @@
+{
+  "nav": {
+    "domains": "Domaines",
+    "website": "Créateur de site",
+    "hosting": "Hébergement",
+    "email": "E-mail",
+    "security": "Sécurité",
+    "support": "Assistance",
+    "clientArea": "Espace Client",
+    "login": "Connexion"
+  },
+  "footer": {
+    "tagline": "Nous aidons les particuliers et les entreprises à établir leur présence en ligne.",
+    "products": "Produits",
+    "company": "Entreprise",
+    "support": "Assistance",
+    "legal": "Mentions légales",
+    "domainNames": "Noms de domaine",
+    "aiBuilder": "Créateur de site IA",
+    "webHosting": "Hébergement web",
+    "wordpressHosting": "Hébergement WordPress",
+    "professionalEmail": "E-mail professionnel",
+    "sslCerts": "Certificats SSL",
+    "aboutUs": "À propos",
+    "careers": "Carrières",
+    "contactUs": "Nous contacter",
+    "affiliates": "Affiliés",
+    "partners": "Partenaires",
+    "helpCenter": "Centre d'aide",
+    "productSupport": "Support produit",
+    "systemStatus": "État du système",
+    "reportAbuse": "Signaler un abus",
+    "communityForums": "Forums communautaires",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "trustCenter": "Centre de confiance",
+    "whoisPolicy": "Politique WHOIS",
+    "cookiePolicy": "Politique des cookies",
+    "copyright": "© 2026 Drave Registry. Tous droits réservés.",
+    "icann": "ACCRÉDITÉ ICANN",
+    "ssl": "SÉCURISÉ SSL"
+  },
+  "search": {
+    "placeholder": "Trouvez votre nom de domaine parfait...",
+    "button": "Rechercher",
+    "tld": ".com",
+    "perYear": "/an",
+    "perMonth": "/mois"
+  },
+  "trust": {
+    "domains": "10M+ Domaines",
+    "customers": "500K+ Clients",
+    "uptime": "99,9% Disponibilité",
+    "countries": "150+ Pays",
+    "domainsLabel": "Domaines gérés",
+    "customersLabel": "Clients satisfaits",
+    "uptimeLabel": "Garantie de disponibilité",
+    "countriesLabel": "Pays desservis"
+  },
+  "cta": {
+    "getStarted": "Commencer",
+    "learnMore": "En savoir plus",
+    "viewPlans": "Voir les offres",
+    "addToCart": "Ajouter au panier",
+    "choosePlan": "Choisir ce plan",
+    "selectPlan": "Sélectionner",
+    "tryFree": "Essayer gratuitement",
+    "contactSales": "Contacter les ventes"
+  }
+}

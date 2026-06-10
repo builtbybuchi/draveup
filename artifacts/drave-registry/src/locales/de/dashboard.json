@@ -1,0 +1,113 @@
+{
+  "sidebar": {
+    "overview": "Übersicht",
+    "myDomains": "Meine Domains",
+    "transfers": "Übertragungen",
+    "orders": "Bestellungen",
+    "wallet": "Brieftasche",
+    "contacts": "Kontakte",
+    "emailPlans": "E-Mail-Pläne",
+    "whoisLookup": "WHOIS-Abfrage",
+    "security": "Sicherheit",
+    "profile": "Profil"
+  },
+  "overview": {
+    "activeDomains": "Aktive Domains",
+    "pendingTransfers": "Ausstehende Übertragungen",
+    "nextRenewal": "Nächste Verlängerung",
+    "walletBalance": "Wallet-Guthaben",
+    "none": "Keine"
+  },
+  "domains": {
+    "title": "Meine Domains",
+    "empty": "Noch keine Domains",
+    "search": "Suchen...",
+    "columns": {
+      "name": "Domain-Name",
+      "status": "Status",
+      "registrar": "Registrar",
+      "expires": "Läuft ab",
+      "actions": "Aktionen"
+    },
+    "actions": {
+      "manage": "Verwalten",
+      "renew": "Verlängern",
+      "transfer": "Übertragen",
+      "delete": "Löschen"
+    },
+    "status": {
+      "active": "Aktiv",
+      "expired": "Abgelaufen",
+      "pending": "Übertragung ausstehend",
+      "suspended": "Ausgesetzt"
+    }
+  },
+  "transfers": {
+    "title": "Domain-Übertragungen",
+    "empty": "Keine aktiven Übertragungen",
+    "columns": {
+      "domain": "Domain",
+      "status": "Status",
+      "progress": "Fortschritt",
+      "eTA": "Geschätzte Ankunftszeit"
+    }
+  },
+  "orders": {
+    "title": "Bestellverlauf",
+    "empty": "Noch keine Bestellungen",
+    "columns": {
+      "id": "Bestellnummer",
+      "date": "Datum",
+      "items": "Artikel",
+      "total": "Gesamt",
+      "status": "Status"
+    }
+  },
+  "wallet": {
+    "title": "Meine Brieftasche",
+    "balance": "Aktueller Saldo",
+    "topUp": "Aufladen",
+    "history": "Transaktionsverlauf",
+    "empty": "Noch keine Transaktionen",
+    "columns": {
+      "date": "Datum",
+      "type": "Typ",
+      "amount": "Betrag",
+      "description": "Beschreibung"
+    }
+  },
+  "contacts": {
+    "title": "Domain-Kontakte",
+    "add": "Kontakt hinzufügen",
+    "empty": "Noch keine Kontakte",
+    "types": {
+      "registrant": "Eigentümer",
+      "admin": "Admin",
+      "tech": "Technisch",
+      "billing": "Abrechnung"
+    }
+  },
+  "emails": {
+    "title": "E-Mail-Pläne",
+    "empty": "Keine E-Mail-Pläne",
+    "addEmail": "E-Mail-Plan hinzufügen",
+    "columns": {
+      "email": "E-Mail-Adresse",
+      "plan": "Plan",
+      "status": "Status",
+      "expires": "Läuft ab"
+    }
+  },
+  "security": {
+    "title": "Sicherheitseinstellungen",
+    "twoFactor": "Zwei-Faktor-Authentifizierung",
+    "sessions": "Aktive Sitzungen",
+    "apiKeys": "API-Schlüssel"
+  },
+  "profile": {
+    "title": "Profileinstellungen",
+    "personalInfo": "Persönliche Daten",
+    "preferences": "Einstellungen",
+    "notifications": "Benachrichtigungen"
+  }
+}

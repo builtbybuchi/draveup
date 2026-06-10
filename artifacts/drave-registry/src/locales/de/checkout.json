@@ -1,0 +1,51 @@
+{
+  "pageTitle": "Kasse",
+  "loginRequired": {
+    "title": "Anmeldung erforderlich",
+    "desc": "Bitte melden Sie sich an oder erstellen Sie ein Konto, um Ihren Kauf abzuschließen. Ihr Warenkorb wird gespeichert.",
+    "button": "Zum Fortfahren anmelden"
+  },
+  "orderConfirmed": {
+    "title": "Bestellung bestätigt!",
+    "desc": "Ihre Zahlung wurde erhalten und Ihre Dienste werden aktiviert.",
+    "button": "Zum Dashboard"
+  },
+  "emptyCart": {
+    "title": "Ihr Warenkorb ist leer",
+    "desc": "Fügen Sie einige Domains oder E-Mail-Pläne hinzu, um zu beginnen.",
+    "button": "Domains durchsuchen"
+  },
+  "account": {
+    "label": "Konto",
+    "loggedIn": "Angemeldet"
+  },
+  "payment": {
+    "label": "Zahlungsweise",
+    "wallet": "DraveUp-Brieftasche",
+    "walletDesc": "Zahlen Sie direkt von Ihrem Wallet-Guthaben",
+    "squadco": "Kartenzahlung (Squadco)",
+    "squadcoDesc": "Zahlen Sie sicher per Karte (Visa, Mastercard, etc.)",
+    "secure": "Sichere 256-Bit-SSL-Kasse"
+  },
+  "summary": {
+    "title": "Bestellübersicht",
+    "subtotal": "Zwischensumme",
+    "tax": "Steuern",
+    "total": "Gesamtsumme",
+    "placeOrder": "Bestellung aufgeben",
+    "placing": "Bestellung wird aufgegeben...",
+    "loginToCheckout": "Zum Auschecken anmelden",
+    "insufficientFunds": "Unzureichendes Wallet-Guthaben. Aufladen oder andere Zahlungsweise verwenden."
+  },
+  "domainType": {
+    "domain": "Domain",
+    "emailPlan": "E-Mail-Plan",
+    "transfer": "Übertragung"
+  },
+  "cartSummary": {
+    "cart": "Ihr Warenkorb",
+    "empty": "Ihr Warenkorb ist leer",
+    "emptyDesc": "Durchsuchen Sie eine Domain zum Starten",
+    "searchBtn": "Domains durchsuchen"
+  }
+}

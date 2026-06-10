@@ -1,0 +1,53 @@
+{
+  "hero": {
+    "title": "Finden Sie Ihre perfekte Domain",
+    "subtitle": "Suchen Sie unter 500+ Endungen und beanspruchen Sie Ihre digitale Identität.",
+    "badge": "500+ Domain-Endungen"
+  },
+  "results": {
+    "title": "Ergebnisse für",
+    "available": "Verfügbar!",
+    "taken": "Vergeben",
+    "firstYear": "im ersten Jahr",
+    "suggested": "Vorgeschlagene Alternativen"
+  },
+  "pricing": {
+    "title": "Transparente Preise",
+    "subtitle": "Keine versteckten Gebühren. Keine überraschenden Verlängerungen. Nur ehrliche Preise.",
+    "extension": "Endung",
+    "firstYear": "1. Jahr",
+    "renewal": "Verlängerung",
+    "transfer": "Transfer",
+    "register": "Registrieren"
+  },
+  "features": {
+    "title": "Jede Domain enthält",
+    "privacy": { "title": "Kostenloser WHOIS-Datenschutz", "desc": "Halten Sie Ihre persönlichen Daten aus öffentlichen WHOIS-Abfragen heraus — kostenlos enthalten." },
+    "lock": { "title": "Domain-Sperre", "desc": "Verhindern Sie unbefugte Transfers mit unserem mehrschichtigen Sperrsystem." },
+    "dns": { "title": "Premium-DNS", "desc": "Blitzschnelle DNS-Auflösung an 150+ globalen Präsenzpunkten." },
+    "forwarding": { "title": "URL-Weiterleitung", "desc": "Leiten Sie Ihre Domain auf eine beliebige URL weiter, mit oder ohne Maskierung." },
+    "dnssec": { "title": "DNSSEC", "desc": "Schützen Sie Ihre Domain vor DNS-Spoofing und Cache-Poisoning-Angriffen." },
+    "support": { "title": "24/7-Support", "desc": "Expertenunterstützung rund um die Uhr per Chat, Telefon oder Ticket." }
+  },
+  "transfer": {
+    "title": "Transferieren Sie Ihre Domain zu Drave",
+    "subtitle": "Wechseln Sie Ihre bestehenden Domains zu uns und erhalten Sie bessere Preise, kostenlosen Datenschutz und überlegene Verwaltungstools.",
+    "step1": "Transfer-Berechtigung prüfen",
+    "step2": "Domain beim aktuellen Registrar entsperren",
+    "step3": "Autorisierungscode eingeben",
+    "step4": "Transfer bestätigen",
+    "cta": "Transfer starten"
+  },
+  "whois": {
+    "title": "WHOIS-Abfrage",
+    "subtitle": "Suchen Sie die Registrierungsdetails für eine beliebige Domain.",
+    "placeholder": "Einen Domainnamen eingeben...",
+    "button": "Abfragen",
+    "label": "WHOIS"
+  },
+  "bulk": {
+    "title": "Massen-Domain-Suche",
+    "subtitle": "Prüfen Sie die Verfügbarkeit von Hunderten von Domains auf einmal.",
+    "cta": "Massensuche"
+  }
+}

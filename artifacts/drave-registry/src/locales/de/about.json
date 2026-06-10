@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "title": "Über DraveUp",
+    "subtitle": "Gegründet von Unternehmern, die frustriert waren über überteuerte, verwirrende Domain-Registrare. Wir entschieden uns, den zu bauen, den wir uns immer gewünscht hatten.",
+    "badge": "ICANN-akkreditierter Registrar"
+  },
+  "mission": {
+    "title": "Unsere Mission",
+    "desc": "Den Aufbau einer professionellen Online-Präsenz für jeden einfach, erschwinglich und zugänglich zu machen — von Erst-Unternehmern bis zu globalen Konzernen."
+  },
+  "story": {
+    "title": "Unsere Geschichte",
+    "p1": "DraveUp wurde 2026 von einem Team aus Ingenieuren und Unternehmern gegründet, die es satt hatten, durch überteuerte, verwirrende Domain-Registrare zu navigieren, die jedes Produkt hinter dunklen Mustern und Upsells versteckten.",
+    "p2": "Wir haben Drave von Grund auf mit einem einzigen Versprechen aufgebaut: transparente Preise, Weltklasse-Technologie und echter Kundensupport. Keine Tricks, keine versteckten Gebühren, keine automatischen Verlängerungen ohne Ihre Zustimmung.",
+    "p3": "Heute verwaltet DraveUp Millionen von Domains in 150+ Ländern, und wir haben gerade erst begonnen."
+  },
+  "stats": {
+    "domains": { "value": "10M+", "label": "Verwaltete Domains" },
+    "customers": { "value": "500K+", "label": "Kunden weltweit" },
+    "countries": { "value": "150+", "label": "Bediente Länder" },
+    "uptime": { "value": "99,9%", "label": "Betriebszeitgarantie" }
+  },
+  "values": {
+    "title": "Unsere Werte",
+    "v1": { "title": "Transparenz", "desc": "Keine versteckten Gebühren, keine Überraschungen bei Verlängerungen. Jeder Preis ist genau das, was Sie zahlen werden — heute und bei der Verlängerung." },
+    "v2": { "title": "Zuverlässigkeit", "desc": "Wir betreiben redundante Unternehmensinfrastruktur mit einem finanziell abgesicherten 99,9% Betriebszeit-SLA." },
+    "v3": { "title": "Kunde zuerst", "desc": "Unser Support-Team besteht aus echten Domain- und Hosting-Experten — rund um die Uhr in mehreren Sprachen verfügbar." },
+    "v4": { "title": "Innovation", "desc": "Wir investieren kontinuierlich in Next-Generation-Tools wie unseren KI-Website-Builder, damit Ihr Unternehmen vorne bleibt." }
+  },
+  "team": {
+    "title": "Führungsteam",
+    "join": "Unserem Team beitreten",
+    "careers": "Wir stellen ein in Technik, Support und Wachstum. Offene Stellen ansehen."
+  },
+  "cta": {
+    "title": "Bereit anzufangen?",
+    "button": "Domain suchen"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "whois": "WHOIS Policy",
+    "trust": "Trust Center",
+    "abuse": "Report Abuse",
+    "disclosure": "Domain Registration Data Disclosure Policy"
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "updated": "Last updated: January 1, 2026",
+    "s1": { "title": "1. Acceptance of Terms", "body": "By using Drave Registry services, you agree to be bound by these Terms of Service. If you do not agree to these terms, you may not use our services." },
+    "s2": { "title": "2. Domain Registration", "body": "Domain registrations are subject to the policies of the applicable registry and ICANN. You are responsible for ensuring your registration does not infringe on third-party rights." },
+    "s3": { "title": "3. Payments & Refunds", "body": "All fees are non-refundable except as expressly stated. Hosting plans include a 30-day money-back guarantee. Domain registrations may be refunded within 5 days of registration." },
+    "s4": { "title": "4. Account Responsibility", "body": "You are solely responsible for all activity conducted through your account. Keep your login credentials secure and notify us immediately of any unauthorized access." },
+    "s5": { "title": "5. Service Availability", "body": "We strive for 99.9% uptime. Scheduled maintenance will be announced in advance. We are not liable for interruptions beyond our reasonable control." }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: January 1, 2026",
+    "s1": { "title": "1. Information We Collect", "body": "We collect information you provide during registration (name, email, address), payment details processed securely via PCI-compliant processors, and technical data including IP addresses and usage logs." },
+    "s2": { "title": "2. How We Use Your Information", "body": "Your information is used to provide and improve our services, process payments, communicate with you about your account, and comply with legal obligations. We never sell your personal data to third parties." },
+    "s3": { "title": "3. WHOIS Privacy", "body": "We provide free WHOIS privacy protection on eligible domains. When enabled, our proxy information replaces your personal data in public WHOIS databases." },
+    "s4": { "title": "4. Data Security", "body": "We employ industry-standard security measures including 256-bit SSL encryption, PCI DSS compliant payment processing, and regular security audits to protect your data." },
+    "s5": { "title": "5. Your Rights", "body": "Depending on your jurisdiction, you may have rights to access, correct, delete, or export your personal data. Contact privacy@draveregistry.com to exercise these rights." }
+  },
+  "trust": {
+    "title": "Trust Center",
+    "subtitle": "Our commitment to security, privacy, and transparency.",
+    "certifications": "Certifications & Compliance",
+    "icann": "ICANN Accredited Registrar",
+    "pci": "PCI DSS Level 1 Compliant",
+    "ssl": "SSL/TLS 256-bit Encryption",
+    "gdpr": "GDPR Compliant"
+  }
+}

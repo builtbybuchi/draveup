@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "title": "Ihre komplette Lösung für Online-Präsenz",
+    "subtitle": "Domains, E-Mail, Produktivitätstools und Sicherheit — alles, was Sie brauchen, um Ihre Online-Identität zu etablieren und zu schützen."
+  },
+  "services": {
+    "title": "Zuverlässige Dienstleistungen",
+    "subtitle": "Alles für Ihre Online-Präsenz.",
+    "domains": {
+      "title": "Domain-Namen",
+      "subtitle": "Finden Sie den perfekten Domain-Namen für Ihr Unternehmen",
+      "description": "Wählen Sie aus über 500 TLDs und registrieren Sie Ihre bevorzugte Domain zu transparenten Preisen. Verwalten Sie alles über ein intuitives Dashboard mit kostenlosem WHOIS-Schutz auf Lebenszeit.",
+      "benefit1": "Über 500 Domain-Endungen",
+      "benefit2": "Transparente und wettbewerbsfähige Preise",
+      "benefit3": "Kostenloser WHOIS-Datenschutz",
+      "benefit4": "Sofortige Domain-Aktivierung",
+      "cta": "Domains suchen"
+    },
+    "email": {
+      "title": "Professionelle E-Mail",
+      "subtitle": "Benutzerdefinierte E-Mail-Adressen für Ihre Domain",
+      "description": "Erstellen Sie professionelle E-Mail-Konten, die zu Ihrem Domain-Namen passen. Beeindrucken Sie Kunden mit Adressen, die Vertrauen schaffen.",
+      "benefit1": "E-Mail-Konten @ihredomain.com",
+      "benefit2": "Verschiedene Tarifoptionen",
+      "benefit3": "Einfache Einrichtung und Verwaltung",
+      "benefit4": "Jederzeit verfügbarer Support",
+      "cta": "E-Mail-Service buchen"
+    },
+    "googleWorkspace": {
+      "title": "Google Workspace",
+      "subtitle": "Produktivitäts- und Zusammenarbeits-Tools",
+      "description": "Optimieren Sie Ihre Geschäftsabläufe mit Google Workspace. Nutzen Sie Gmail, Drive, Docs, Meet und mehr — nahtlos in Ihre Domain integriert.",
+      "benefit1": "Gmail mit eigener Domain",
+      "benefit2": "100 GB Cloud-Speicher",
+      "benefit3": "Videokonferenzen mit Google Meet",
+      "benefit4": "Gemeinsame Dokumentenbearbeitung",
+      "cta": "Google Workspace kaufen"
+    },
+    "security": {
+      "title": "Erweiterte Sicherheit",
+      "subtitle": "Schützen Sie Ihre Website und Kundendaten",
+      "description": "Sichern Sie Ihre Website mit SiteLock-Malware-Scans und erweiterten SSL-Zertifikaten. Genießen Sie die Sicherheit, dass Ihre Daten geschützt sind.",
+      "benefit1": "SiteLock-Malware-Scans",
+      "benefit2": "Erweiterte SSL-Zertifikate",
+      "benefit3": "24/7 Sicherheitsüberwachung",
+      "benefit4": "PCI-Compliance-Support",
+      "cta": "Website absichern"
+    }
+  },
+  "pricing": {
+    "title": "Transparente Domain-Preise",
+    "subtitle": "Wählen Sie aus Hunderten von Domain-Endungen zu wettbewerbsfähigen Preisen ohne versteckte Gebühren."
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "items": [
+      { "q": "Was ist DraveUp?", "a": "DraveUp ist ein ICANN-akkreditierter Domain-Registrar. Wir bieten Domain-Registrierung, Transfers, WHOIS-Suchen und professionelles E-Mail-Hosting – alles zu transparenten Selbstkostenpreisen." },
+      { "q": "Warum eine Domain bei Drave registrieren?", "a": "Wir geben die Einsparungen direkt an Sie weiter, mit Selbstkostenpreisen für beliebte Endungen. Außerdem erhalten Sie lebenslang kostenlosen WHOIS-Schutz, ein benutzerfreundliches Dashboard und Experten-Support." },
+      { "q": "Wie funktioniert die Domain-Registrierung?", "a": "Suchen Sie nach Ihrem Wunschnamen, fügen Sie ihn Ihrem Warenkorb hinzu und schließen Sie die Kasse ab. Ihre Domain wird in wenigen Minuten aktiviert und Sie erhalten eine Bestätigungs-E-Mail." },
+      { "q": "Wie verwalte ich meine Domain nach dem Kauf?", "a": "Melden Sie sich in Ihrem DraveUp-Dashboard an, um DNS-Einstellungen zu verwalten, Nameserver zu konfigurieren, Ihre Domain zu erneuern, E-Mail-Pläne einzurichten und vieles mehr – alles von einem Ort aus." }
+    ]
+  },
+  "finalCta": {
+    "title": "DraveUp hat die Domain-Registrierung auf die nächste Stufe gehoben!",
+    "subtitle": "Schließen Sie sich Millionen von Domain-Inhabern an, die DraveUp vertrauen."
+  }
+}

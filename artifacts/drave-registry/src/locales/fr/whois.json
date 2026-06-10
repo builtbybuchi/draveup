@@ -1,0 +1,31 @@
+{
+  "title": "Recherche WHOIS",
+  "subtitle": "Découvrez qui possède un domaine, quand il expire et d'autres détails d'enregistrement publics.",
+  "form": {
+    "placeholder": "Entrez un nom de domaine (par ex., example.com)",
+    "searchButton": "Rechercher",
+    "searching": "Recherche en cours..."
+  },
+  "result": {
+    "registrarInfo": "Informations sur le registraire",
+    "importantDates": "Dates importantes",
+    "nameServers": "Serveurs de noms",
+    "rawWhois": "Données WHOIS brutes",
+    "registered": "Enregistré",
+    "expires": "Expire",
+    "updated": "Mis à jour",
+    "status": "Non enregistré",
+    "statusUnavailable": "WHOIS indisponible"
+  },
+  "info": {
+    "title": "Qu'est-ce que WHOIS?",
+    "text": "WHOIS est un enregistrement Internet largement utilisé qui identifie qui possède un domaine et comment le contacter. L'Internet Corporation for Assigned Names and Numbers (ICANN) réglemente l'enregistrement et la propriété des noms de domaine.",
+    "useTitle": "Pourquoi utiliser cet outil?",
+    "useItems": [
+      "Découvrez quand un domaine expire",
+      "Contactez les propriétaires de domaines pour des demandes d'achat",
+      "Vérifiez où le DNS d'un domaine est hébergé",
+      "Enquêter sur les domaines frauduleux ou malveillants"
+    ]
+  }
+}

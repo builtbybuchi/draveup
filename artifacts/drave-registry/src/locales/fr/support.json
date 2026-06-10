@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "title": "Nous sommes là pour vous aider",
+    "subtitle": "Assistance d'experts, 24 heures sur 24, 7 jours sur 7. De vraies personnes, pas des robots.",
+    "badge": "Support en direct 24h/24"
+  },
+  "channels": {
+    "title": "Obtenez de l'aide comme vous préférez",
+    "chat": { "title": "Chat en direct", "desc": "Réponses instantanées de notre équipe. Temps de réponse moyen : moins de 2 minutes.", "cta": "Démarrer le chat" },
+    "phone": { "title": "Support téléphonique", "desc": "Parlez directement à un expert en domaines et hébergement. Disponible 24h/24 en plusieurs langues.", "cta": "Appeler maintenant" },
+    "ticket": { "title": "Ticket de support", "desc": "Soumettez une demande détaillée et obtenez une réponse approfondie en 2 heures.", "cta": "Ouvrir un ticket" },
+    "kb": { "title": "Base de connaissances", "desc": "Parcourez 1 000+ articles, tutoriels et guides vidéo dans notre centre d'aide.", "cta": "Parcourir les articles" }
+  },
+  "faq": {
+    "title": "Questions fréquemment posées",
+    "q1": "Comment transférer mon domaine vers DraveUp ?",
+    "a1": "Le transfert est facile. Déverrouillez votre domaine chez votre registrar actuel, obtenez le code d'autorisation et saisissez-le dans notre outil de transfert. Le processus prend 5 à 7 jours.",
+    "q2": "Quels modes de paiement acceptez-vous ?",
+    "a2": "Nous acceptons Visa, Mastercard, American Express, PayPal, virements bancaires et de nombreux modes de paiement locaux selon votre région.",
+    "q3": "Puis-je obtenir un remboursement si je ne suis pas satisfait ?",
+    "a3": "Oui. Nous offrons une garantie de remboursement de 30 jours sur les plans d'hébergement et une fenêtre de remboursement de 5 jours sur les domaines.",
+    "q4": "Proposez-vous la confidentialité de domaine gratuitement ?",
+    "a4": "Oui ! La protection de la vie privée WHOIS est incluse sans frais supplémentaires sur toutes les enregistrements de domaines éligibles.",
+    "q5": "Comment connecter mon domaine à mon site web ?",
+    "a5": "Connectez-vous à votre Espace Client, accédez à la Gestion DNS et mettez à jour vos serveurs de noms ou enregistrements A. Nous fournissons des guides étape par étape pour chaque fournisseur d'hébergement majeur.",
+    "q6": "Proposez-vous des programmes de revendeur ?",
+    "a6": "Oui. Nous proposons des programmes d'hébergement revendeur en marque blanche et de revente de domaines. Contactez notre équipe commerciale pour en savoir plus."
+  },
+  "status": {
+    "title": "État du système",
+    "operational": "Tous les systèmes opérationnels",
+    "subtitle": "Vérifiez l'état en temps réel de tous les services Drave."
+  },
+  "cta": {
+    "title": "Vous avez encore besoin d'aide ?",
+    "subtitle": "Nos experts sont disponibles. Ne laissez pas un problème technique ralentir votre entreprise.",
+    "button": "Contacter le support"
+  }
+}

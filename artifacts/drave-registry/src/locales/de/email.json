@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "title": "Professionelle Geschäfts-E-Mail",
+    "subtitle": "Wirken Sie professionell mit einer E-Mail-Adresse, die zu Ihrer Domain passt. Auf sicheren, werbefreien Unternehmensservern gehostet.",
+    "badge": "Werbefrei & sicher"
+  },
+  "plans": {
+    "title": "Einfache, transparente Preise",
+    "subtitle": "Wählen Sie den Plan, der zu Ihrem Team passt.",
+    "starter": { "name": "Starter", "desc": "Für Einzelpersonen und Freiberufler", "users": "1 Benutzer", "storage": "10 GB Speicher" },
+    "business": { "name": "Business", "desc": "Für wachsende Teams", "users": "Bis zu 25 Benutzer", "storage": "50 GB pro Benutzer" },
+    "enterprise": { "name": "Enterprise", "desc": "Für große Organisationen", "users": "Unbegrenzte Benutzer", "storage": "100 GB pro Benutzer" }
+  },
+  "features": {
+    "title": "Alles, was Sie in Ihrem Posteingang brauchen",
+    "f1": { "title": "Eigene Domain-E-Mail", "desc": "Erstellen Sie ihrname@ihrfirma.com und wirken Sie sofort professionell." },
+    "f2": { "title": "99,9% Betriebszeit", "desc": "Ihre E-Mail ist immer verfügbar — redundante Server halten Sie verbunden." },
+    "f3": { "title": "Spam- und Virenschutz", "desc": "Unternehmensgerechte Filterung hält Ihren Posteingang sauber und sicher." },
+    "f4": { "title": "Kalender & Kontakte", "desc": "Geteilte Kalender, Adressbücher und Aufgabenverwaltung integriert." },
+    "f5": { "title": "Mobile & Desktop-Apps", "desc": "Greifen Sie von jedem Gerät über unsere nativen Apps oder Webmail zu." },
+    "f6": { "title": "E-Mail-Aliase", "desc": "Erstellen Sie unbegrenzte Aliase — info@, support@, sales@ — alles in einem Konto." },
+    "f7": { "title": "Migrationshilfe", "desc": "Wir migrieren Ihre bestehenden E-Mails von Gmail, Outlook oder einem anderen Anbieter." },
+    "f8": { "title": "2FA-Sicherheit", "desc": "Zwei-Faktor-Authentifizierung schützt Ihr Konto vor unbefugtem Zugriff." }
+  },
+  "featureList": {
+    "webmail": "Webmail-Zugang",
+    "spam": "Spam- & Virenfilterung",
+    "mobile": "Mobile App-Zugang",
+    "calendar": "Kalender & Kontakte",
+    "aliases": "E-Mail-Aliase",
+    "support": "24/7-Support"
+  },
+  "cta": {
+    "title": "Ihre professionelle E-Mail wartet",
+    "subtitle": "Die Einrichtung dauert weniger als 5 Minuten. Ihre E-Mail, Ihre Marke.",
+    "button": "Ihre E-Mail erstellen"
+  }
+}

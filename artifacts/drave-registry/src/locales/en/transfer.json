@@ -1,0 +1,40 @@
+{
+  "badge": "Seamless Transfers",
+  "title": "Transfer to DraveUp",
+  "subtitle": "Consolidate your domains, save money on renewals, and manage everything from a single intuitive dashboard.",
+  "form": {
+    "domainLabel": "Domain Name",
+    "domainPlaceholder": "example.com",
+    "authCodeLabel": "Auth Code (EPP)",
+    "authCodePlaceholder": "Optional now",
+    "submitButton": "Transfer"
+  },
+  "benefits": {
+    "title": "Why transfer to Drave?",
+    "items": [
+      { "title": "No Downtime", "desc": "Your website stays online during the transfer process." },
+      { "title": "Keep Remaining Time", "desc": "Any time left on your current registration is kept." },
+      { "title": "Free 1-Year Extension", "desc": "Every transfer includes an additional year of registration." },
+      { "title": "Free Privacy Protection", "desc": "Keep your personal information hidden from WHOIS." }
+    ]
+  },
+  "pricing": {
+    "title": "Transfer Pricing",
+    "extension": "Extension",
+    "transferPrice": "Transfer Price",
+    "renewalPrice": "Renewal Price",
+    "includes1yr": "(Includes 1 yr)",
+    "perYear": "/yr",
+    "loading": "Loading transfer pricing…",
+    "notConfigured": "Transfer pricing not configured yet."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      { "q": "How long does a domain transfer take?", "a": "Typically 5-7 days, depending on your current registrar." },
+      { "q": "Will my website go down?", "a": "No! As long as you don't change your nameservers during the transfer, your website will stay online." },
+      { "q": "What is an Auth Code?", "a": "Also known as an EPP code, it's a password for your domain that you get from your current registrar to prove you own it." },
+      { "q": "Do I lose the time I already paid for?", "a": "No! Any remaining time is carried over to DraveUp, plus you get an additional year." }
+    ]
+  }
+}

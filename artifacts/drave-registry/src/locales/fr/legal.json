@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité",
+    "cookies": "Politique des cookies",
+    "whois": "Politique WHOIS",
+    "trust": "Centre de confiance",
+    "abuse": "Signaler un abus",
+    "disclosure": "Politique de divulgation des données d'enregistrement de domaine"
+  },
+  "terms": {
+    "title": "Conditions d'utilisation",
+    "updated": "Dernière mise à jour : 1er janvier 2026",
+    "s1": { "title": "1. Acceptation des conditions", "body": "En utilisant les services de Drave Registry, vous acceptez d'être lié par ces conditions d'utilisation. Si vous n'acceptez pas ces conditions, vous ne pouvez pas utiliser nos services." },
+    "s2": { "title": "2. Enregistrement de domaine", "body": "Les enregistrements de domaines sont soumis aux politiques du registre applicable et de l'ICANN. Vous êtes responsable de vous assurer que votre enregistrement ne viole pas les droits de tiers." },
+    "s3": { "title": "3. Paiements et remboursements", "body": "Tous les frais sont non remboursables sauf indication contraire expresse. Les plans d'hébergement incluent une garantie de remboursement de 30 jours. Les enregistrements de domaine peuvent être remboursés dans les 5 jours suivant l'enregistrement." },
+    "s4": { "title": "4. Responsabilité du compte", "body": "Vous êtes seul responsable de toute activité menée via votre compte. Gardez vos identifiants de connexion sécurisés et informez-nous immédiatement de tout accès non autorisé." },
+    "s5": { "title": "5. Disponibilité du service", "body": "Nous visons une disponibilité de 99,9%. La maintenance planifiée sera annoncée à l'avance. Nous ne sommes pas responsables des interruptions au-delà de notre contrôle raisonnable." }
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "updated": "Dernière mise à jour : 1er janvier 2026",
+    "s1": { "title": "1. Informations que nous collectons", "body": "Nous collectons les informations que vous fournissez lors de l'inscription (nom, e-mail, adresse), les détails de paiement traités de manière sécurisée via des processeurs conformes PCI, et les données techniques incluant les adresses IP et les journaux d'utilisation." },
+    "s2": { "title": "2. Comment nous utilisons vos informations", "body": "Vos informations sont utilisées pour fournir et améliorer nos services, traiter les paiements, communiquer avec vous sur votre compte et respecter les obligations légales. Nous ne vendons jamais vos données personnelles à des tiers." },
+    "s3": { "title": "3. Confidentialité WHOIS", "body": "Nous fournissons une protection de la vie privée WHOIS gratuite sur les domaines éligibles. Lorsqu'elle est activée, nos informations de proxy remplacent vos données personnelles dans les bases de données WHOIS publiques." },
+    "s4": { "title": "4. Sécurité des données", "body": "Nous employons des mesures de sécurité conformes aux normes de l'industrie, notamment le chiffrement SSL 256 bits, le traitement des paiements conforme PCI DSS et des audits de sécurité réguliers pour protéger vos données." },
+    "s5": { "title": "5. Vos droits", "body": "Selon votre juridiction, vous pouvez avoir des droits d'accès, de correction, de suppression ou d'exportation de vos données personnelles. Contactez confidentialite@draveregistry.com pour exercer ces droits." }
+  },
+  "trust": {
+    "title": "Centre de confiance",
+    "subtitle": "Notre engagement en matière de sécurité, de confidentialité et de transparence.",
+    "certifications": "Certifications et conformité",
+    "icann": "Bureau d'enregistrement accrédité ICANN",
+    "pci": "Conforme PCI DSS Niveau 1",
+    "ssl": "Chiffrement SSL/TLS 256 bits",
+    "gdpr": "Conforme RGPD"
+  }
+}

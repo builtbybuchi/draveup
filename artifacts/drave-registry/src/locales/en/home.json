@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "title": "Your complete online presence solution",
+    "subtitle": "Domains, email, productivity tools, and security — everything you need to establish and protect your online identity."
+  },
+  "services": {
+    "title": "Services You Can Trust",
+    "subtitle": "Everything you need to build your online presence.",
+    "domains": {
+      "title": "Domain Names",
+      "subtitle": "Find the perfect domain name for your business",
+      "description": "Choose from 500+ top-level domain extensions and register your preferred domain at transparent, affordable prices. Manage all your domains from one intuitive dashboard with instant activation and free WHOIS privacy for life.",
+      "benefit1": "500+ domain extensions available",
+      "benefit2": "Transparent, competitive pricing",
+      "benefit3": "Free WHOIS privacy protection",
+      "benefit4": "Instant domain activation",
+      "cta": "Search Domains"
+    },
+    "email": {
+      "title": "Professional Email",
+      "subtitle": "Custom email addresses for your domain",
+      "description": "Create professional email accounts that match your domain name. Impress clients and customers with branded email addresses that build credibility and trust for your business.",
+      "benefit1": "Email accounts @yourdomain.com",
+      "benefit2": "Multiple plan options",
+      "benefit3": "Easy setup and management",
+      "benefit4": "Always available support",
+      "cta": "Get Email Service"
+    },
+    "googleWorkspace": {
+      "title": "Google Workspace",
+      "subtitle": "Productivity and collaboration tools",
+      "description": "Streamline your business operations with Google Workspace. Get Gmail, Google Drive, Google Docs, Google Meet, and more — all integrated with your custom domain.",
+      "benefit1": "Gmail with custom domain email",
+      "benefit2": "100GB of cloud storage",
+      "benefit3": "Video conferencing with Google Meet",
+      "benefit4": "Collaborative documents and spreadsheets",
+      "cta": "Purchase Google Workspace"
+    },
+    "security": {
+      "title": "Advanced Security",
+      "subtitle": "Protect your website and customer data",
+      "description": "Secure your website with SiteLock malware scanning and advanced SSL certificates. Gain peace of mind knowing your site is protected against threats and your customers' data is encrypted.",
+      "benefit1": "SiteLock malware scanning",
+      "benefit2": "Advanced SSL certificates",
+      "benefit3": "24/7 security monitoring",
+      "benefit4": "PCI Compliance support",
+      "cta": "Secure Your Site"
+    }
+  },
+  "pricing": {
+    "title": "Transparent Domain Pricing",
+    "subtitle": "Choose from hundreds of domain extensions at competitive rates with no hidden fees."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      { "q": "What is DraveUp?", "a": "DraveUp is an ICANN-accredited domain name registrar. We offer domain registration, transfers, WHOIS lookups, and professional email hosting — all at transparent, at-cost pricing." },
+      { "q": "Why register a domain with Drave?", "a": "We pass the savings directly to you with at-cost pricing on popular extensions. You also get free WHOIS privacy for life, a user-friendly dashboard, and expert support." },
+      { "q": "How does domain registration work?", "a": "Search for your desired domain name, add it to your cart, and complete checkout. Your domain activates within minutes and you'll receive a confirmation email." },
+      { "q": "How do I manage my domain after purchase?", "a": "Log into your DraveUp dashboard to manage DNS settings, configure nameservers, renew your domain, set up email plans, and much more — all from one place." }
+    ]
+  },
+  "finalCta": {
+    "title": "DraveUp has taken domain registration to the next level!",
+    "subtitle": "Join millions of domain owners who trust DraveUp for reliable, transparent registrar services."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "WHOIS-Abfrage",
+  "subtitle": "Erfahren Sie, wem eine Domain gehört, wann sie abläuft und andere öffentliche Registrierungsdetails.",
+  "form": {
+    "placeholder": "Geben Sie einen Domain-Namen ein (z. B. example.com)",
+    "searchButton": "Suchen",
+    "searching": "Wird gesucht..."
+  },
+  "result": {
+    "registrarInfo": "Registrar-Informationen",
+    "importantDates": "Wichtige Daten",
+    "nameServers": "Nameserver",
+    "rawWhois": "Rohe WHOIS-Daten",
+    "registered": "Registriert",
+    "expires": "Läuft ab",
+    "updated": "Aktualisiert",
+    "status": "Nicht registriert",
+    "statusUnavailable": "WHOIS nicht verfügbar"
+  },
+  "info": {
+    "title": "Was ist WHOIS?",
+    "text": "WHOIS ist eine weit verbreitete Internet-Datenbankauflistung, die angibt, wem eine Domain gehört und wie man sie kontaktiert. Die Internet Corporation for Assigned Names and Numbers (ICANN) regelt die Domain-Registrierung und den Besitz.",
+    "useTitle": "Warum dieses Tool verwenden?",
+    "useItems": [
+      "Erfahren Sie, wann eine Domain abläuft",
+      "Kontaktieren Sie Domain-Eigentümer für Kaufanfragen",
+      "Überprüfen Sie, wo das DNS einer Domain gehostet wird",
+      "Untersuchen Sie Missbrauchs- oder böswillige Domains"
+    ]
+  }
+}

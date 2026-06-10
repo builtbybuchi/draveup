@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "title": "E-mail professionnel",
+    "subtitle": "Paraissez professionnel avec une adresse e-mail correspondant à votre domaine. Hébergé sur des serveurs d'entreprise sécurisés et sans publicité.",
+    "badge": "Sans publicité et sécurisé"
+  },
+  "plans": {
+    "title": "Tarification simple et transparente",
+    "subtitle": "Choisissez le plan qui convient à votre équipe.",
+    "starter": { "name": "Débutant", "desc": "Pour les particuliers et les freelances", "users": "1 utilisateur", "storage": "10 Go de stockage" },
+    "business": { "name": "Business", "desc": "Pour les équipes en croissance", "users": "Jusqu'à 25 utilisateurs", "storage": "50 Go par utilisateur" },
+    "enterprise": { "name": "Entreprise", "desc": "Pour les grandes organisations", "users": "Utilisateurs illimités", "storage": "100 Go par utilisateur" }
+  },
+  "features": {
+    "title": "Tout ce dont vous avez besoin dans votre boîte de réception",
+    "f1": { "title": "E-mail de domaine personnalisé", "desc": "Créez votreprenom@votreentreprise.com et paraissez instantanément professionnel." },
+    "f2": { "title": "Disponibilité 99,9%", "desc": "Votre e-mail est toujours actif — des serveurs redondants vous maintiennent connecté." },
+    "f3": { "title": "Protection contre spam et virus", "desc": "Un filtrage de niveau entreprise maintient votre boîte de réception propre et sécurisée." },
+    "f4": { "title": "Calendrier et contacts", "desc": "Calendriers partagés, carnets d'adresses et gestion des tâches intégrés." },
+    "f5": { "title": "Applications mobile et bureau", "desc": "Accédez à votre e-mail depuis n'importe quel appareil via nos applications natives ou webmail." },
+    "f6": { "title": "Alias e-mail", "desc": "Créez des alias illimités — info@, support@, ventes@ — tous dans un compte." },
+    "f7": { "title": "Assistance à la migration", "desc": "Nous migrerons vos e-mails existants depuis Gmail, Outlook ou tout autre fournisseur." },
+    "f8": { "title": "Sécurité à deux facteurs", "desc": "L'authentification à deux facteurs protège votre compte contre les accès non autorisés." }
+  },
+  "featureList": {
+    "webmail": "Accès webmail",
+    "spam": "Filtrage spam et virus",
+    "mobile": "Accès application mobile",
+    "calendar": "Calendrier et contacts",
+    "aliases": "Alias e-mail",
+    "support": "Support 24h/24"
+  },
+  "cta": {
+    "title": "Votre e-mail professionnel vous attend",
+    "subtitle": "La configuration prend moins de 5 minutes. Votre e-mail, votre marque.",
+    "button": "Créer votre e-mail"
+  }
+}

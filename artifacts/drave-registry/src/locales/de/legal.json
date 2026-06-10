@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "terms": "Nutzungsbedingungen",
+    "privacy": "Datenschutzerklärung",
+    "cookies": "Cookie-Richtlinie",
+    "whois": "WHOIS-Richtlinie",
+    "trust": "Trust Center",
+    "abuse": "Missbrauch melden",
+    "disclosure": "Domain-Registrierungsdaten-Offenlegungsrichtlinie"
+  },
+  "terms": {
+    "title": "Nutzungsbedingungen",
+    "updated": "Zuletzt aktualisiert: 1. Januar 2026",
+    "s1": { "title": "1. Annahme der Bedingungen", "body": "Durch die Nutzung der Dienste von Drave Registry stimmen Sie zu, an diese Nutzungsbedingungen gebunden zu sein. Wenn Sie diesen Bedingungen nicht zustimmen, dürfen Sie unsere Dienste nicht nutzen." },
+    "s2": { "title": "2. Domain-Registrierung", "body": "Domain-Registrierungen unterliegen den Richtlinien der jeweiligen Registry und der ICANN. Sie sind dafür verantwortlich sicherzustellen, dass Ihre Registrierung keine Rechte Dritter verletzt." },
+    "s3": { "title": "3. Zahlungen & Rückerstattungen", "body": "Alle Gebühren sind nicht erstattungsfähig, außer wie ausdrücklich angegeben. Hosting-Pläne beinhalten eine 30-Tage-Geld-zurück-Garantie. Domain-Registrierungen können innerhalb von 5 Tagen nach der Registrierung erstattet werden." },
+    "s4": { "title": "4. Konto-Verantwortung", "body": "Sie sind allein verantwortlich für alle Aktivitäten, die über Ihr Konto durchgeführt werden. Halten Sie Ihre Anmeldedaten sicher und benachrichtigen Sie uns sofort über jeden unbefugten Zugriff." },
+    "s5": { "title": "5. Service-Verfügbarkeit", "body": "Wir streben eine Betriebszeit von 99,9% an. Geplante Wartungsarbeiten werden im Voraus angekündigt. Wir haften nicht für Unterbrechungen, die über unsere angemessene Kontrolle hinausgehen." }
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "updated": "Zuletzt aktualisiert: 1. Januar 2026",
+    "s1": { "title": "1. Informationen, die wir sammeln", "body": "Wir sammeln Informationen, die Sie bei der Registrierung angeben (Name, E-Mail, Adresse), Zahlungsdetails, die sicher über PCI-konforme Prozessoren verarbeitet werden, und technische Daten einschließlich IP-Adressen und Nutzungsprotokolle." },
+    "s2": { "title": "2. Wie wir Ihre Informationen verwenden", "body": "Ihre Informationen werden verwendet, um unsere Dienste bereitzustellen und zu verbessern, Zahlungen zu verarbeiten, mit Ihnen über Ihr Konto zu kommunizieren und rechtliche Verpflichtungen einzuhalten. Wir verkaufen Ihre persönlichen Daten niemals an Dritte." },
+    "s3": { "title": "3. WHOIS-Datenschutz", "body": "Wir bieten kostenlosen WHOIS-Datenschutz auf berechtigten Domains. Wenn aktiviert, ersetzen unsere Proxy-Informationen Ihre persönlichen Daten in öffentlichen WHOIS-Datenbanken." },
+    "s4": { "title": "4. Datensicherheit", "body": "Wir verwenden branchenübliche Sicherheitsmaßnahmen, einschließlich 256-Bit-SSL-Verschlüsselung, PCI-DSS-konformer Zahlungsverarbeitung und regelmäßiger Sicherheitsaudits zum Schutz Ihrer Daten." },
+    "s5": { "title": "5. Ihre Rechte", "body": "Je nach Ihrer Gerichtsbarkeit haben Sie möglicherweise Rechte auf Zugang, Berichtigung, Löschung oder Export Ihrer persönlichen Daten. Kontaktieren Sie datenschutz@draveregistry.com, um diese Rechte auszuüben." }
+  },
+  "trust": {
+    "title": "Trust Center",
+    "subtitle": "Unser Engagement für Sicherheit, Datenschutz und Transparenz.",
+    "certifications": "Zertifizierungen & Compliance",
+    "icann": "ICANN-akkreditierter Registrar",
+    "pci": "PCI DSS Level 1 konform",
+    "ssl": "SSL/TLS 256-Bit-Verschlüsselung",
+    "gdpr": "DSGVO-konform"
+  }
+}

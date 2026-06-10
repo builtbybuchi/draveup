@@ -1,0 +1,35 @@
+{
+  "hero": {
+    "title": "Unternehmensgerechte Sicherheit",
+    "subtitle": "Schützen Sie Ihre Website, Kunden und Ihren Ruf mit unserem umfassenden Sicherheitspaket.",
+    "badge": "256-Bit-Verschlüsselung"
+  },
+  "ssl": {
+    "title": "SSL-Zertifikate",
+    "subtitle": "Verschlüsseln Sie Ihre Website und bauen Sie Kundenvertrauen mit HTTPS auf.",
+    "dv": { "name": "Domain-Validierung", "desc": "Grundlegende Verschlüsselung für persönliche Websites und Blogs." },
+    "ov": { "name": "Organisations-Validierung", "desc": "Verbessertes Vertrauen für Unternehmenswebsites." },
+    "ev": { "name": "Erweiterte Validierung", "desc": "Maximales Vertrauen für E-Commerce und Unternehmen." },
+    "wildcard": { "name": "Wildcard-SSL", "desc": "Sichern Sie unbegrenzte Subdomains mit einem Zertifikat." }
+  },
+  "features": {
+    "title": "Vollständiges Sicherheitspaket",
+    "f1": { "title": "SSL/TLS-Verschlüsselung", "desc": "256-Bit-Verschlüsselung schützt Daten bei der Übertragung zwischen Ihrem Server und Besuchern." },
+    "f2": { "title": "DNSSEC", "desc": "Verhindern Sie DNS-Hijacking und Cache-Poisoning durch kryptografische Authentifizierung." },
+    "f3": { "title": "DDoS-Schutz", "desc": "Mildern Sie automatisch verteilte Denial-of-Service-Angriffe, bevor sie Sie erreichen." },
+    "f4": { "title": "Web Application Firewall", "desc": "Blockieren Sie SQL-Injection, XSS und andere häufige Web-Angriffe in Echtzeit." },
+    "f5": { "title": "Malware-Scanning", "desc": "Tägliche automatisierte Scans erkennen und warnen Sie sofort vor Bedrohungen." },
+    "f6": { "title": "WHOIS-Datenschutz", "desc": "Halten Sie Ihre persönlichen Registrierungsdaten aus der öffentlichen WHOIS-Datenbank heraus." }
+  },
+  "trust": {
+    "title": "Vertrauenssignale für Ihre Besucher",
+    "green": "Grünes Schloss im Browser",
+    "https": "HTTPS in Ihrer URL",
+    "badge": "Vertrauenssiegel für Checkout-Seiten"
+  },
+  "cta": {
+    "title": "Sichern Sie Ihre Website noch heute",
+    "subtitle": "Lassen Sie die Daten Ihrer Besucher nicht ungeschützt. SSL-Zertifikate beginnen bei 0€ mit berechtigten Hosting-Plänen.",
+    "button": "SSL-Zertifikat holen"
+  }
+}

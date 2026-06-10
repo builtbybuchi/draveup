@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://draveregistry.leapcell.app/api/$1"
+    }
+  ]
+}
