@@ -18,15 +18,8 @@ if (!["stg", "prd"].includes(stage)) {
   throw new Error(`Unsupported stage: ${stage}`);
 }
 
-const appwriteSetupCommand = process.env.APPWRITE_SETUP_COMMAND;
 const cloudflareAccountId = process.env.CF_ACCOUNT_ID;
 const cloudflareApiToken = process.env.CF_API_TOKEN;
-
-if (!appwriteSetupCommand) {
-  throw new Error(
-    "APPWRITE_SETUP_COMMAND is required. Set it to the repository command that prepares Appwrite for the target stage.",
-  );
-}
 
 if (!cloudflareAccountId) {
   throw new Error("CF_ACCOUNT_ID is required.");
@@ -44,7 +37,6 @@ const wranglerEnv = {
   CF_ACCOUNT_ID: cloudflareAccountId,
   CF_API_TOKEN: cloudflareApiToken,
   DEPLOY_STAGE: stage,
-  APPWRITE_STAGE: stage,
 };
 
 function run(command, args, options = {}) {
@@ -91,8 +83,11 @@ async function runWrangler(args, options = {}) {
   return run("pnpm", ["dlx", "wrangler@^4.0.0", ...args], options);
 }
 
-async function runAppwriteSetup() {
-  await run("sh", ["-lc", appwriteSetupCommand], { env: wranglerEnv });
+async function runPrismaSetup() {
+  const script = stage === "prd" ? "db:sync:force" : "db:sync";
+  await runPnpm(["--filter", "@workspace/api-server", "run", script], {
+    env: wranglerEnv,
+  });
 }
 
 async function prepareFrontendWorker(workerSourcePath, apiOrigin) {
@@ -160,7 +155,7 @@ async function deployWorker({
 
 async function main() {
   console.log(`Deploying Cloudflare Workers for ${stage}`);
-  await runAppwriteSetup();
+  await runPrismaSetup();
 
   await runPnpm(["--filter", "@workspace/api-server", "run", "build"], {
     env: wranglerEnv,

@@ -211,8 +211,8 @@ pnpm run typecheck
 pnpm run build
 
 # deploy to Cloudflare Workers
-APPWRITE_SETUP_COMMAND="pnpm run <your-appwrite-setup-command>" pnpm run deploy:cloudflare:stg
-APPWRITE_SETUP_COMMAND="pnpm run <your-appwrite-setup-command>" pnpm run deploy:cloudflare:prd
+pnpm run deploy:cloudflare:stg
+pnpm run deploy:cloudflare:prd
 ```
 
 # drave-registry

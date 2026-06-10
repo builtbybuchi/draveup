@@ -48,7 +48,6 @@ jobs:
       - name: Deploy staging
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
-          APPWRITE_SETUP_COMMAND: ${{ vars.APPWRITE_SETUP_COMMAND }}
         run: doppler run --project draveup --config stg -- node scripts/deploy-cloudflare.mjs stg
 
   deploy-production:
@@ -79,5 +78,4 @@ jobs:
       - name: Deploy production
         env:
           DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
-          APPWRITE_SETUP_COMMAND: ${{ vars.APPWRITE_SETUP_COMMAND }}
         run: doppler run --project draveup --config prd -- node scripts/deploy-cloudflare.mjs prd
