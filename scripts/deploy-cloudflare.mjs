@@ -84,7 +84,7 @@ async function runWrangler(args, options = {}) {
   return run("pnpm", ["dlx", "wrangler@^4.0.0", ...args], options);
 }
 
-// ==================== UPDATED: Upload Secrets from Doppler ====================
+// ==================== FIXED: Upload Secrets from Doppler (GitHub Actions friendly) ====================
 async function uploadSecrets(workerName) {
   console.log(`🔐 Uploading secrets for ${workerName}...`);
 
@@ -93,15 +93,18 @@ async function uploadSecrets(workerName) {
   }
 
   try {
-    // Install Doppler CLI (recommended for CI)
-    console.log("📥 Installing Doppler CLI...");
+    console.log("📥 Installing Doppler CLI (user-local)...");
+
+    // Install Doppler CLI to current directory (no sudo needed)
     await run("sh", ["-c", `
-      (curl -Ls --tlsv1.2 --proto "=https" --retry 3 https://cli.doppler.com/install.sh || wget -t 3 -qO- https://cli.doppler.com/install.sh) | sh
+      (curl -Ls --tlsv1.2 --proto "=https" --retry 3 https://cli.doppler.com/install.sh || wget -t 3 -qO- https://cli.doppler.com/install.sh) | sh -s -- --no-package-manager --no-install
     `], { env: wranglerEnv });
 
-    // Export secrets as JSON
+    // Now use the local binary
+    const dopplerBin = "./doppler";
+
     console.log("📤 Fetching secrets from Doppler...");
-    const { stdout: secretsJson } = await run("./doppler", [
+    const { stdout: secretsJson } = await run(dopplerBin, [
       "secrets", 
       "download", 
       "--no-file", 
@@ -114,17 +117,16 @@ async function uploadSecrets(workerName) {
       }
     });
 
-    if (!secretsJson.trim()) {
+    if (!secretsJson || !secretsJson.trim()) {
       throw new Error("No secrets returned from Doppler");
     }
 
-    // Write to temp file for wrangler secret bulk
+    // Write secrets to temp file
     const tempDir = await mkdtemp(path.join(os.tmpdir(), `draveup-secrets-${stage}-`));
     const secretsPath = path.join(tempDir, "secrets.json");
     await writeFile(secretsPath, secretsJson.trim(), "utf8");
 
-    // Upload to Cloudflare
-    console.log("🚀 Uploading secrets to Cloudflare Worker...");
+    console.log("🚀 Uploading secrets to Cloudflare...");
     await runWrangler(["secret", "bulk", secretsPath, "--name", workerName], {
       env: wranglerEnv,
     });
