@@ -84,59 +84,54 @@ async function runWrangler(args, options = {}) {
   return run("pnpm", ["dlx", "wrangler@^4.0.0", ...args], options);
 }
 
-// ==================== NEW: Upload Secrets from Doppler ====================
+// ==================== UPDATED: Upload Secrets from Doppler ====================
 async function uploadSecrets(workerName) {
   console.log(`🔐 Uploading secrets for ${workerName}...`);
 
+  if (!process.env.DOPPLER_TOKEN) {
+    throw new Error("DOPPLER_TOKEN environment variable is required but not set.");
+  }
+
   try {
-    // Doppler → JSON → wrangler secret bulk
-    const result = await runPnpm(
-      ["dlx", "doppler", "secrets", "--json"],
-      {
-        env: {
-          ...wranglerEnv,
-          DOPPLER_TOKEN: process.env.DOPPLER_TOKEN,
-        },
-      }
-    );
+    // Install Doppler CLI (recommended for CI)
+    console.log("📥 Installing Doppler CLI...");
+    await run("sh", ["-c", `
+      (curl -Ls --tlsv1.2 --proto "=https" --retry 3 https://cli.doppler.com/install.sh || wget -t 3 -qO- https://cli.doppler.com/install.sh) | sh
+    `], { env: wranglerEnv });
 
-    // Transform Doppler format to simple {KEY: "value"}
-    const secretsJson = result.stdout.trim();
-    if (!secretsJson) throw new Error("No secrets returned from Doppler");
-
-    await runWrangler([
-      "secret",
-      "bulk",
-      "--name",
-      workerName,
+    // Export secrets as JSON
+    console.log("📤 Fetching secrets from Doppler...");
+    const { stdout: secretsJson } = await run("./doppler", [
+      "secrets", 
+      "download", 
+      "--no-file", 
+      "--format", 
+      "json"
     ], {
-      env: wranglerEnv,
-      // Pass the transformed JSON via stdin simulation (we write to a temp file for reliability)
-      // But simpler: pipe through jq if available, or use temp file
+      env: {
+        ...wranglerEnv,
+        DOPPLER_TOKEN: process.env.DOPPLER_TOKEN,
+      }
     });
 
-    // Better approach with temp file for reliability
+    if (!secretsJson.trim()) {
+      throw new Error("No secrets returned from Doppler");
+    }
+
+    // Write to temp file for wrangler secret bulk
     const tempDir = await mkdtemp(path.join(os.tmpdir(), `draveup-secrets-${stage}-`));
     const secretsPath = path.join(tempDir, "secrets.json");
+    await writeFile(secretsPath, secretsJson.trim(), "utf8");
 
-    // Use jq if available, otherwise simple parse (assuming Doppler CLI v3+)
-    const parsed = JSON.parse(secretsJson);
-    const cleanSecrets = {};
-    Object.keys(parsed).forEach(key => {
-      cleanSecrets[key] = parsed[key].computed || parsed[key].raw || parsed[key];
-    });
-
-    await writeFile(secretsPath, JSON.stringify(cleanSecrets, null, 2), "utf8");
-
+    // Upload to Cloudflare
+    console.log("🚀 Uploading secrets to Cloudflare Worker...");
     await runWrangler(["secret", "bulk", secretsPath, "--name", workerName], {
       env: wranglerEnv,
     });
 
-    console.log(`✅ Secrets uploaded for ${workerName}`);
+    console.log(`✅ Secrets uploaded successfully for ${workerName}`);
   } catch (err) {
-    console.error("⚠️ Failed to upload secrets:", err.message);
-    console.error("Make sure DOPPLER_TOKEN is set in CI and Doppler CLI works.");
-    // Don't fail hard if you want to continue (but better to fail)
+    console.error("❌ Failed to upload secrets:", err.message);
     throw err;
   }
 }
