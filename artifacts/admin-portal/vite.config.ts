@@ -11,6 +11,9 @@ export default defineConfig(async ({ mode }) => {
 
   return {
     base: env.BASE_PATH ?? "/",
+    define: {
+      "import.meta.env.BACKEND_URL": JSON.stringify(env.BACKEND_URL ?? ""),
+    },
     plugins: [
       react(),
       tailwindcss(),

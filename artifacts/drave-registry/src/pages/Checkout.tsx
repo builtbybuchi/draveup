@@ -7,6 +7,7 @@ import { CreditCard, Lock, ShoppingCart, CheckCircle2, Trash2, Wallet, Info } fr
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'wouter';
 import { useTranslation } from 'react-i18next';
+import { apiUrl } from '@/lib/api';
 
 declare global {
   interface Window {
@@ -35,7 +36,7 @@ export function Checkout() {
 
   useEffect(() => {
     if (!isAuthenticated) return;
-    fetch('/api/wallet/balance')
+    fetch(apiUrl('/api/wallet/balance'))
       .then((r) => r.ok ? r.json() : { balanceUsd: 0 })
       .then((d) => setWalletUsd(Number(d.balanceUsd || 0)))
       .catch(() => setWalletUsd(0));
@@ -132,7 +133,7 @@ export function Checkout() {
       ref: orderData.reference,
       callback: function(response: any) {
         // Verify via backend
-        fetch(`/api/orders/${orderData.orderId}/verify`, { method: 'POST' })
+        fetch(apiUrl(`/api/orders/${orderData.orderId}/verify`), { method: 'POST' })
           .then(r => r.json())
           .then(res => {
             if (res.status === 'PAID') {
@@ -172,7 +173,7 @@ export function Checkout() {
         };
       });
 
-      const res = await fetch('/api/orders', {
+      const res = await fetch(apiUrl('/api/orders'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

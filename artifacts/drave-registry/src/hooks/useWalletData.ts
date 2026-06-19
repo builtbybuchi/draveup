@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { apiUrl } from "@/lib/api";
 
 export interface WalletTxn {
   id: string;
@@ -15,7 +16,7 @@ export function useWalletBalance() {
   return useQuery<{ balanceUsd: number }>({
     queryKey: ["wallet-balance"],
     queryFn: async () => {
-      const r = await fetch("/api/wallet/balance");
+      const r = await fetch(apiUrl("/api/wallet/balance"));
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     },
@@ -28,7 +29,7 @@ export function useWalletTransactions() {
   return useQuery<{ items: WalletTxn[]; nextCursor: string | null }>({
     queryKey: ["wallet-transactions"],
     queryFn: async () => {
-      const r = await fetch("/api/wallet/transactions?limit=50");
+      const r = await fetch(apiUrl("/api/wallet/transactions?limit=50"));
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const data = await r.json();
       if (Array.isArray(data)) return { items: data, nextCursor: null };

@@ -1,6 +1,12 @@
 import { useAuth } from "@clerk/react";
 import { useCallback } from "react";
 
+function apiUrl(path: string): string {
+  const backendUrl = import.meta.env.BACKEND_URL;
+  if (!backendUrl) return path;
+  return new URL(path, backendUrl).toString();
+}
+
 /** Returns a fetch wrapper that injects the current Clerk session token. */
 export function useApi() {
   const { getToken } = useAuth();
@@ -10,7 +16,7 @@ export function useApi() {
       const headers = new Headers(init.headers || {});
       if (token) headers.set("Authorization", `Bearer ${token}`);
       if (init.body && !headers.has("Content-Type")) headers.set("Content-Type", "application/json");
-      const res = await fetch(path, { ...init, headers });
+      const res = await fetch(apiUrl(path), { ...init, headers });
       const text = await res.text();
       const data = text ? JSON.parse(text) : null;
       if (!res.ok) {

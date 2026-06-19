@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { apiUrl } from "@/lib/api";
 
 export interface HomeStats {
   mostPopularTld: string | null;
@@ -9,7 +10,7 @@ export function useHomeStats() {
   return useQuery<HomeStats>({
     queryKey: ["home-stats"],
     queryFn: async () => {
-      const r = await fetch("/api/home/stats");
+      const r = await fetch(apiUrl("/api/home/stats"));
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     },

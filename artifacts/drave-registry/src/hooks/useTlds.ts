@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { apiUrl } from "@/lib/api";
 
 export interface ApiTld {
   tld: string;       // "com"
@@ -13,7 +14,7 @@ export function useTlds() {
   return useQuery<ApiTld[]>({
     queryKey: ["tlds"],
     queryFn: async () => {
-      const r = await fetch("/api/tlds");
+      const r = await fetch(apiUrl("/api/tlds"));
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     },
@@ -36,7 +37,7 @@ export async function searchDomains(
 ) {
   const params = new URLSearchParams({ query });
   if (tlds && tlds.length) params.set("tlds", tlds.join(","));
-  const r = await fetch(`/api/domains/search?${params.toString()}`, { signal: opts?.signal });
+  const r = await fetch(apiUrl(`/api/domains/search?${params.toString()}`), { signal: opts?.signal });
   if (!r.ok) throw new Error(`HTTP ${r.status}`);
   const data = await r.json();
   return (data.results || []) as DomainSearchResult[];

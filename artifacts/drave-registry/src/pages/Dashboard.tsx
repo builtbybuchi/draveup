@@ -19,6 +19,7 @@ import { useMyOrders, type MyOrder } from '@/hooks/useMyOrders';
 import { useMyContacts, useCreateContact, useUpdateContact, useDeleteContact, type MyContact, type ContactInput } from '@/hooks/useMyContacts';
 import { useWalletBalance, useWalletTransactions } from '@/hooks/useWalletData';
 import { useTlds } from '@/hooks/useTlds';
+import { apiUrl } from '@/lib/api';
 
 type SidebarSection = 'dashboard' | 'domains' | 'transfers' | 'orders' | 'wallet' | 'contacts' | 'emails' | 'whois' | 'security' | 'profile';
 
@@ -310,7 +311,7 @@ function DomainList() {
     setAuthLoading(true);
     setActionErr(null);
     try {
-      const r = await fetch(`/api/domains/${encodeURIComponent(manage.domain.domainName)}/auth-code`);
+      const r = await fetch(apiUrl(`/api/domains/${encodeURIComponent(manage.domain.domainName)}/auth-code`));
       const j = await r.json();
       if (!r.ok) throw new Error(j.message || j.error || 'Failed');
       setAuthCode(j.authCode);
@@ -334,7 +335,7 @@ function DomainList() {
     if (!manage) return;
     setContactLoading(true);
     try {
-      const r = await fetch(`/api/domains/${encodeURIComponent(manage.domain.domainName)}/contacts?type=registrant`);
+      const r = await fetch(apiUrl(`/api/domains/${encodeURIComponent(manage.domain.domainName)}/contacts?type=registrant`));
       const j = await r.json();
       setDomainContact(j.ok ? j.contact : null);
     } catch { setDomainContact(null); }
@@ -348,7 +349,7 @@ function DomainList() {
     setAssignLoading(true);
     setActionErr(null);
     try {
-      const r = await fetch(`/api/domains/${encodeURIComponent(manage.domain.domainName)}/contacts`, {
+      const r = await fetch(apiUrl(`/api/domains/${encodeURIComponent(manage.domain.domainName)}/contacts`), {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type: 'registrant', contact: { firstName: c.firstName, lastName: c.lastName, organization: c.organization ?? '', email: c.email, phone: c.phone, address1: c.address1, address2: c.address2 ?? '', city: c.city, state: c.state ?? '', postalCode: c.postalCode, country: c.country } }),
@@ -370,7 +371,7 @@ function DomainList() {
       const tld = manage.domain.tld;
       const tldRow = tlds?.find(t => t.tld === tld);
       const priceUsd = tldRow?.priceRenew ? Number(tldRow.priceRenew) : undefined;
-      const res = await fetch('/api/orders', {
+      const res = await fetch(apiUrl('/api/orders'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -653,7 +654,7 @@ function TransferList() {
   const checkStatus = async (domainName: string) => {
     setLoading(p => ({ ...p, [domainName]: true }));
     try {
-      const r = await fetch(`/api/domains/${encodeURIComponent(domainName)}/transfer-status`);
+      const r = await fetch(apiUrl(`/api/domains/${encodeURIComponent(domainName)}/transfer-status`));
       const j = await r.json();
       setStatuses(p => ({ ...p, [domainName]: j.status || j.transferStatus || 'Unknown' }));
     } catch { setStatuses(p => ({ ...p, [domainName]: 'Error fetching status' })); }
@@ -846,7 +847,7 @@ function WalletSection() {
     const ref = params.get('reference') || params.get('transaction_ref');
     if (!ref || !ref.startsWith('DRV-WAL-')) return;
     setVerifying(true);
-    fetch(`/api/wallet/verify/${encodeURIComponent(ref)}`, { method: 'POST' })
+    fetch(apiUrl(`/api/wallet/verify/${encodeURIComponent(ref)}`), { method: 'POST' })
       .then(r => r.json())
       .finally(() => { setVerifying(false); refresh(); window.history.replaceState({}, '', '/dashboard'); });
   }, [refresh]);
@@ -858,7 +859,7 @@ function WalletSection() {
       const amt = Number(topUpAmount);
       if (!amt || amt <= 0) throw new Error('Invalid amount');
       
-      const res = await fetch('/api/wallet/fund/init', {
+      const res = await fetch(apiUrl('/api/wallet/fund/init'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amountUsd: amt, callbackUrl: `${window.location.origin}/dashboard?wallet=funded` }),
@@ -879,7 +880,7 @@ function WalletSection() {
         callback: function() {
            setVerifying(true);
            setTopUpOpen(false);
-           fetch(`/api/wallet/verify/${encodeURIComponent(data.reference)}`, { method: 'POST' })
+           fetch(apiUrl(`/api/wallet/verify/${encodeURIComponent(data.reference)}`), { method: 'POST' })
              .then(r => r.json())
              .finally(() => { setVerifying(false); refresh(); });
         },
@@ -1137,7 +1138,7 @@ function EmailList() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/users/me/emails')
+    fetch(apiUrl('/api/users/me/emails'))
       .then(r => r.ok ? r.json() : [])
       .then(d => setEmails(Array.isArray(d) ? d : []))
       .catch(() => setEmails([]))
@@ -1193,7 +1194,7 @@ function WhoisSection() {
     if (!query.trim()) return;
     setSearching(true); setError(null); setResult(null);
     try {
-      const r = await fetch(`/api/domains/whois?domain=${encodeURIComponent(query.trim())}`);
+      const r = await fetch(apiUrl(`/api/domains/whois?domain=${encodeURIComponent(query.trim())}`));
       const j = await r.json();
       if (!r.ok) throw new Error(j.error || 'WHOIS lookup failed');
       setResult(j);
@@ -1295,7 +1296,7 @@ function ProfileSection({ user }: { user: any }) {
       const base64String = event.target?.result as string;
       setSaving(true);
       try {
-        const res = await fetch('/api/users/me', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ imageFile: base64String }) });
+        const res = await fetch(apiUrl('/api/users/me'), { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ imageFile: base64String }) });
         if (res.ok) { setMessage('Profile image updated.'); setTimeout(() => window.location.reload(), 1000); }
         else setMessage('Failed to update image.');
       } catch { setMessage('Error updating image.'); }
@@ -1307,7 +1308,7 @@ function ProfileSection({ user }: { user: any }) {
   const handleSave = async () => {
     setSaving(true); setMessage('');
     try {
-      const res = await fetch('/api/users/me', { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ firstName, lastName }) });
+      const res = await fetch(apiUrl('/api/users/me'), { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ firstName, lastName }) });
       setMessage(res.ok ? 'Profile updated successfully.' : 'Failed to update profile.');
     } catch { setMessage('Error updating profile.'); }
     finally { setSaving(false); }

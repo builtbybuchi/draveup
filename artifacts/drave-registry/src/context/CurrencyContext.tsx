@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import { apiUrl } from '@/lib/api';
 
 export interface Currency {
   code: string;
@@ -36,7 +37,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch('/api/currency');
+        const res = await fetch(apiUrl('/api/currency'));
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const list: Currency[] = await res.json();
         if (cancelled || !Array.isArray(list) || list.length === 0) return;

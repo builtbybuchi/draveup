@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Search, Globe, Shield, Calendar, Server } from "lucide-react";
 import { Link } from "wouter";
 import { useTranslation } from "react-i18next";
+import { apiUrl } from "@/lib/api";
 
 export function Whois() {
   const { t } = useTranslation(['whois']);
@@ -17,7 +18,7 @@ export function Whois() {
     setSearching(true);
     
     try {
-      const response = await fetch(`/api/domains/whois?domain=${encodeURIComponent(query)}`);
+      const response = await fetch(apiUrl(`/api/domains/whois?domain=${encodeURIComponent(query)}`));
       const data = await response.json();
       const fmt = (d?: string | null) => (d ? new Date(d).toISOString().split('T')[0] : "—");
 

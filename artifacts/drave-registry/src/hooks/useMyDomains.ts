@@ -1,4 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { apiUrl } from "@/lib/api";
 
 export interface MyDomain {
   id: string;
@@ -16,7 +17,7 @@ export interface MyDomain {
 }
 
 async function apiFetch(path: string, init?: RequestInit) {
-  const r = await fetch(path, init);
+  const r = await fetch(apiUrl(path), init);
   if (!r.ok) {
     const j = await r.json().catch(() => ({}));
     throw new Error(j?.message || j?.error || `HTTP ${r.status}`);

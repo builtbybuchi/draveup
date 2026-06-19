@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { apiUrl } from "@/lib/api";
 
 export interface MyOrder {
   id: string;
@@ -23,7 +24,7 @@ export function useMyOrders() {
   return useQuery<{ items: MyOrder[]; nextCursor: string | null }>({
     queryKey: ["my-orders"],
     queryFn: async () => {
-      const r = await fetch("/api/orders?limit=50");
+      const r = await fetch(apiUrl("/api/orders?limit=50"));
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     },
