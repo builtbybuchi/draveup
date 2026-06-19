@@ -30,6 +30,7 @@ if (!cloudflareApiToken) {
 }
 
 const dateStamp = new Date().toISOString().slice(0, 10);
+
 const wranglerEnv = {
   ...process.env,
   CLOUDFLARE_ACCOUNT_ID: cloudflareAccountId,
@@ -83,6 +84,64 @@ async function runWrangler(args, options = {}) {
   return run("pnpm", ["dlx", "wrangler@^4.0.0", ...args], options);
 }
 
+// ==================== NEW: Upload Secrets from Doppler ====================
+async function uploadSecrets(workerName) {
+  console.log(`🔐 Uploading secrets for ${workerName}...`);
+
+  try {
+    // Doppler → JSON → wrangler secret bulk
+    const result = await runPnpm(
+      ["dlx", "doppler", "secrets", "--json"],
+      {
+        env: {
+          ...wranglerEnv,
+          DOPPLER_TOKEN: process.env.DOPPLER_TOKEN,
+        },
+      }
+    );
+
+    // Transform Doppler format to simple {KEY: "value"}
+    const secretsJson = result.stdout.trim();
+    if (!secretsJson) throw new Error("No secrets returned from Doppler");
+
+    await runWrangler([
+      "secret",
+      "bulk",
+      "--name",
+      workerName,
+    ], {
+      env: wranglerEnv,
+      // Pass the transformed JSON via stdin simulation (we write to a temp file for reliability)
+      // But simpler: pipe through jq if available, or use temp file
+    });
+
+    // Better approach with temp file for reliability
+    const tempDir = await mkdtemp(path.join(os.tmpdir(), `draveup-secrets-${stage}-`));
+    const secretsPath = path.join(tempDir, "secrets.json");
+
+    // Use jq if available, otherwise simple parse (assuming Doppler CLI v3+)
+    const parsed = JSON.parse(secretsJson);
+    const cleanSecrets = {};
+    Object.keys(parsed).forEach(key => {
+      cleanSecrets[key] = parsed[key].computed || parsed[key].raw || parsed[key];
+    });
+
+    await writeFile(secretsPath, JSON.stringify(cleanSecrets, null, 2), "utf8");
+
+    await runWrangler(["secret", "bulk", secretsPath, "--name", workerName], {
+      env: wranglerEnv,
+    });
+
+    console.log(`✅ Secrets uploaded for ${workerName}`);
+  } catch (err) {
+    console.error("⚠️ Failed to upload secrets:", err.message);
+    console.error("Make sure DOPPLER_TOKEN is set in CI and Doppler CLI works.");
+    // Don't fail hard if you want to continue (but better to fail)
+    throw err;
+  }
+}
+// =====================================================================
+
 async function runPrismaSetup() {
   const script = stage === "prd" ? "db:sync:force" : "db:sync";
   await runPnpm(["--filter", "@workspace/api-server", "run", script], {
@@ -112,12 +171,15 @@ async function writeWranglerConfig({
     path.join(os.tmpdir(), `draveup-wrangler-${stage}-`),
   );
   const configPath = path.join(tempDir, "wrangler.jsonc");
+
   const config = {
     name,
     account_id: cloudflareAccountId,
     main,
     compatibility_date: dateStamp,
     compatibility_flags: compatibilityFlags,
+    // You can add non-sensitive vars here if needed
+    // vars: { NODE_ENV: stage === "prd" ? "production" : "staging" }
   };
 
   if (assetsDirectory) {
@@ -167,11 +229,12 @@ async function main() {
     env: wranglerEnv,
   });
 
-  const apiWorkerPath = path.resolve(
-    repoRoot,
-    "artifacts/api-server/worker.mjs",
-  );
+  // === Deploy API Worker with Secrets ===
   const apiWorkerName = `draveup-api-server-${stage}`;
+  const apiWorkerPath = path.resolve(repoRoot, "artifacts/api-server/worker.mjs");
+
+  await uploadSecrets(apiWorkerName);   // ← Secrets uploaded here
+
   const apiUrl = await deployWorker({
     name: apiWorkerName,
     main: apiWorkerPath,
@@ -180,39 +243,23 @@ async function main() {
 
   console.log(`API deployed at ${apiUrl}`);
 
-  const adminWorkerPath = path.resolve(
-    repoRoot,
-    "artifacts/admin-portal/worker.mjs",
-  );
+  // Frontend workers (no secrets needed)
+  const adminWorkerPath = path.resolve(repoRoot, "artifacts/admin-portal/worker.mjs");
   const adminPrepared = await prepareFrontendWorker(adminWorkerPath, apiUrl);
   const adminUrl = await deployWorker({
     name: `draveup-admin-portal-${stage}`,
     main: adminPrepared.workerTargetPath,
-    assetsDirectory: path.resolve(
-      repoRoot,
-      "artifacts/admin-portal/dist/public",
-    ),
+    assetsDirectory: path.resolve(repoRoot, "artifacts/admin-portal/dist/public"),
   });
-
   console.log(`Admin portal deployed at ${adminUrl}`);
 
-  const registryWorkerPath = path.resolve(
-    repoRoot,
-    "artifacts/drave-registry/worker.mjs",
-  );
-  const registryPrepared = await prepareFrontendWorker(
-    registryWorkerPath,
-    apiUrl,
-  );
+  const registryWorkerPath = path.resolve(repoRoot, "artifacts/drave-registry/worker.mjs");
+  const registryPrepared = await prepareFrontendWorker(registryWorkerPath, apiUrl);
   const registryUrl = await deployWorker({
     name: `draveup-drave-registry-${stage}`,
     main: registryPrepared.workerTargetPath,
-    assetsDirectory: path.resolve(
-      repoRoot,
-      "artifacts/drave-registry/dist/public",
-    ),
+    assetsDirectory: path.resolve(repoRoot, "artifacts/drave-registry/dist/public"),
   });
-
   console.log(`Registry deployed at ${registryUrl}`);
 }
 
