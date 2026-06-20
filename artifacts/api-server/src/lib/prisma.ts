@@ -14,7 +14,7 @@ function createPrismaClient() {
   const log: any = ["warn", "error"];
 
   if (isAccelerate) {
-    const client = new PrismaClient({ log });
+    const client = new PrismaClient({ accelerateUrl: url, log });
     return client.$extends(withAccelerate());
   }
 
