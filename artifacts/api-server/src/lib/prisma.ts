@@ -14,7 +14,10 @@ function createPrismaClient() {
   const log: any = ["warn", "error"];
 
   if (isAccelerate) {
-    const client = new PrismaClient({ datasourceUrl: url, log });
+    const client = new PrismaClient({
+      datasources: { db: { url } },
+      log,
+    });
     return client.$extends(withAccelerate());
   }
 
