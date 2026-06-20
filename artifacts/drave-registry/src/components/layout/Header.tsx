@@ -34,6 +34,7 @@ export function Header() {
     { href: "/email", label: "Email" },
     { href: "/transfer", label: "Transfer Domain" },
     { href: "/whois", label: "WHOIS" },
+    { href: "/knowledgebase", label: "Knowledgebase" },
   ];
 
   const dropdownNav = [
