@@ -3,7 +3,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { Link } from "wouter";
 import { BookOpen, Calendar, User } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useApi } from "@workspace/api-client-react";
+import { apiUrl } from "@/lib/api";
 
 interface Blog {
   id: string;
@@ -16,14 +16,13 @@ interface Blog {
 
 export function BlogList() {
   const { t } = useTranslation(['common']);
-  const api = useApi();
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    api("/api/blog")
+    fetch(apiUrl("/api/blog"))
+      .then((r) => r.json())
       .then((data: any) => {
-        // If Redis cache is returned as a string, parse it. Otherwise use the object.
         let posts = data.posts;
         if (typeof posts === "string") {
           try { posts = JSON.parse(posts); } catch (e) {}
@@ -32,7 +31,7 @@ export function BlogList() {
       })
       .catch((err: any) => console.error("Failed to load blogs:", err))
       .finally(() => setLoading(false));
-  }, [api]);
+  }, []);
 
   return (
     <PageLayout>

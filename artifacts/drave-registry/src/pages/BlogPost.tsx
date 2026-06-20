@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { useRoute, Link } from "wouter";
 import { Calendar, User, ArrowLeft } from "lucide-react";
-import { useApi } from "@workspace/api-client-react";
+import { apiUrl } from "@/lib/api";
 import ReactMarkdown from "react-markdown";
 
 interface Blog {
@@ -17,7 +17,6 @@ interface Blog {
 export function BlogPost() {
   const [, params] = useRoute("/knowledgebase/:slug");
   const slug = params?.slug;
-  const api = useApi();
   const [post, setPost] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -25,8 +24,10 @@ export function BlogPost() {
   useEffect(() => {
     if (!slug) return;
     setLoading(true);
-    api(`/api/blog/${slug}`)
+    fetch(apiUrl(`/api/blog/${slug}`))
+      .then((r) => r.json())
       .then((data: any) => {
+        if (!data.ok) throw new Error(data.error);
         let p = data.post;
         if (typeof p === "string") {
           try { p = JSON.parse(p); } catch (e) {}
@@ -35,7 +36,7 @@ export function BlogPost() {
       })
       .catch((err: any) => setError("Article not found or unavailable."))
       .finally(() => setLoading(false));
-  }, [api, slug]);
+  }, [slug]);
 
   return (
     <PageLayout>
