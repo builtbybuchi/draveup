@@ -47,6 +47,8 @@ function extractStatus(json: any): "success" | "error" {
     json?.ResponseHeader?.Status,
     json?.Header?.Status,
     json?.Status,
+    json?.Response?.ResponseHeader?.Status,
+    json?.Response?.Status,
   ];
   for (const c of candidates) {
     if (typeof c === "string") return c.toLowerCase() === "success" ? "success" : "error";
@@ -61,10 +63,20 @@ function extractError(json: any): string {
     json?.Header?.Error,
     json?.Error,
     json?.error,
+    json?.Response?.ResponseHeader?.Error,
+    json?.Response?.Header?.Error,
+    json?.Response?.Error,
+    json?.Response?.error,
   ];
   for (const c of candidates) {
     if (c && typeof c === "string") return c;
   }
+  try {
+    const str = JSON.stringify(json);
+    if (str && str !== "{}" && str !== '""') {
+      return `Unknown Dynadot error: ${str.slice(0, 150)}`;
+    }
+  } catch (e) {}
   return "Unknown Dynadot error";
 }
 
