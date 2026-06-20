@@ -78,6 +78,7 @@ router.post("/admin/tlds/sync", requireRole("ADMIN"), async (req: any, res) => {
 
     let added = 0, updated = 0, removed = 0;
     const now = new Date();
+    const ops: any[] = [];
 
     // upsert each remote TLD
     for (const r of remote) {
@@ -93,21 +94,23 @@ router.post("/admin/tlds/sync", requireRole("ADMIN"), async (req: any, res) => {
       const newPriceRestore = newCostRestore + MARKUP;
 
       if (!ex) {
-        await prisma.tld.create({
-          data: {
-            name: normalizedName,
-            enabled: true,
-            costRegister: newCostRegister as any,
-            costRenew: newCostRenew as any,
-            costTransfer: newCostTransfer as any,
-            costRestore: newCostRestore as any,
-            priceRegister: newPriceRegister as any,
-            priceRenew: newPriceRenew as any,
-            priceTransfer: newPriceTransfer as any,
-            priceRestore: newPriceRestore as any,
-            lastSyncedAt: now,
-          },
-        });
+        ops.push(
+          prisma.tld.create({
+            data: {
+              name: normalizedName,
+              enabled: true,
+              costRegister: newCostRegister as any,
+              costRenew: newCostRenew as any,
+              costTransfer: newCostTransfer as any,
+              costRestore: newCostRestore as any,
+              priceRegister: newPriceRegister as any,
+              priceRenew: newPriceRenew as any,
+              priceTransfer: newPriceTransfer as any,
+              priceRestore: newPriceRestore as any,
+              lastSyncedAt: now,
+            },
+          })
+        );
         added++;
       } else {
         const costChanged =
@@ -123,24 +126,28 @@ router.post("/admin/tlds/sync", requireRole("ADMIN"), async (req: any, res) => {
         const enabledChanged = ex.enabled === false;
 
         if (costChanged || priceNeedsUpdate || enabledChanged) {
-          await prisma.tld.update({
-            where: { id: ex.id },
-            data: {
-              enabled: true,
-              costRegister: newCostRegister as any,
-              costRenew: newCostRenew as any,
-              costTransfer: newCostTransfer as any,
-              costRestore: newCostRestore as any,
-              priceRegister: newPriceRegister as any,
-              priceRenew: newPriceRenew as any,
-              priceTransfer: newPriceTransfer as any,
-              priceRestore: newPriceRestore as any,
-              lastSyncedAt: now,
-            },
-          });
+          ops.push(
+            prisma.tld.update({
+              where: { id: ex.id },
+              data: {
+                enabled: true,
+                costRegister: newCostRegister as any,
+                costRenew: newCostRenew as any,
+                costTransfer: newCostTransfer as any,
+                costRestore: newCostRestore as any,
+                priceRegister: newPriceRegister as any,
+                priceRenew: newPriceRenew as any,
+                priceTransfer: newPriceTransfer as any,
+                priceRestore: newPriceRestore as any,
+                lastSyncedAt: now,
+              },
+            })
+          );
           updated++;
         } else {
-          await prisma.tld.update({ where: { id: ex.id }, data: { lastSyncedAt: now } });
+          ops.push(
+            prisma.tld.update({ where: { id: ex.id }, data: { lastSyncedAt: now } })
+          );
         }
       }
     }
@@ -148,9 +155,17 @@ router.post("/admin/tlds/sync", requireRole("ADMIN"), async (req: any, res) => {
     // disable TLDs no longer in Dynadot
     for (const ex of existing) {
       if (!remoteByName.has((ex as any).name.toLowerCase()) && (ex as any).enabled) {
-        await prisma.tld.update({ where: { id: (ex as any).id }, data: { enabled: false } });
+        ops.push(
+          prisma.tld.update({ where: { id: (ex as any).id }, data: { enabled: false } })
+        );
         removed++;
       }
+    }
+
+    // Execute operations in chunks of 50 to avoid CF subrequest limits and payload limits
+    const chunkSize = 50;
+    for (let i = 0; i < ops.length; i += chunkSize) {
+      await prisma.$transaction(ops.slice(i, i + chunkSize));
     }
 
     await audit(req, "tld.sync", null as any, { added, updated, removed, total: remote.length });
