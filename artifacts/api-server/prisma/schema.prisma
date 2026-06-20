@@ -280,3 +280,20 @@ enum WalletTxnStatus {
   SUCCESS
   FAILED
 }
+
+// ─── BLOG POSTS / KNOWLEDGE BASE ──────────────────────────────────────────────
+model BlogPost {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String?
+  content     String   // Markdown content
+  authorName  String
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([slug])
+  @@index([createdAt])
+  @@map("blog_posts")
+}

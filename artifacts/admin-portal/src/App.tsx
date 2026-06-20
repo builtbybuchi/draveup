@@ -13,6 +13,8 @@ import { TransfersPage } from "./pages/TransfersPage";
 import { AuditPage } from "./pages/AuditPage";
 import { Dashboard } from "./pages/Dashboard";
 
+import { BlogsPage } from "./pages/BlogsPage";
+
 const queryClient = new QueryClient();
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 if (!clerkPubKey) throw new Error("Missing VITE_CLERK_PUBLISHABLE_KEY");
@@ -69,6 +71,7 @@ function Shell() {
               </div>
               <nav className="flex flex-col gap-1 text-sm flex-1">
                 <NavItem href="/" active={loc === "/"}>Dashboard</NavItem>
+                <NavItem href="/blogs" active={loc.startsWith("/blogs")}>Blogs &amp; KB</NavItem>
                 <NavItem href="/tlds" active={loc.startsWith("/tlds")}>TLDs &amp; pricing</NavItem>
                 <NavItem href="/currencies" active={loc.startsWith("/currencies")}>Currencies</NavItem>
                 <NavItem href="/users" active={loc.startsWith("/users")}>Users</NavItem>
@@ -90,6 +93,7 @@ function Shell() {
             <main className="p-8 overflow-auto">
               <Switch>
                 <Route path="/" component={Dashboard} />
+                <Route path="/blogs"><BlogsPage /></Route>
                 <Route path="/tlds"><TldsPage role={me.role} /></Route>
                 <Route path="/currencies"><CurrenciesPage role={me.role} /></Route>
                 <Route path="/users"><UsersPage role={me.role} /></Route>

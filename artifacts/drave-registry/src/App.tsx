@@ -23,6 +23,8 @@ import { About } from "@/pages/About";
 import { Legal } from "@/pages/Legal";
 import { Security } from "@/pages/Security";
 import { ExchangeRateInfo } from "@/pages/ExchangeRateInfo";
+import { BlogList } from "@/pages/BlogList";
+import { BlogPost } from "@/pages/BlogPost";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -137,6 +139,8 @@ function Router() {
       <Route path="/dashboard/:section" component={Dashboard} />
       <Route path="/checkout" component={Checkout} />
       <Route path="/support" component={Support} />
+      <Route path="/knowledgebase" component={BlogList} />
+      <Route path="/knowledgebase/:slug" component={BlogPost} />
       <Route path="/about" component={About} />
       <Route path="/legal" component={Legal} />
       <Route path="/security" component={Security} />

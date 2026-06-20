@@ -11,6 +11,8 @@ import adminRouter from "./admin.js";
 import contactsRouter from "./contacts.js";
 import homeRouter from "./home.js";
 
+import blogRouter from "./blog.js";
+
 const router: IRouter = Router();
 
 router.use(healthRouter);
@@ -24,5 +26,6 @@ router.use(ordersRouter);
 router.use(adminRouter);
 router.use(contactsRouter);
 router.use(homeRouter);
+router.use(blogRouter);
 
 export default router;
