@@ -162,8 +162,8 @@ router.post("/admin/tlds/sync", requireRole("ADMIN"), async (req: any, res) => {
       }
     }
 
-    // Execute operations in chunks of 50 to avoid CF subrequest limits and payload limits
-    const chunkSize = 50;
+    // Execute operations in chunks of 25 to avoid CF subrequest limits and Prisma's 5s timeout
+    const chunkSize = 25;
     for (let i = 0; i < ops.length; i += chunkSize) {
       await prisma.$transaction(ops.slice(i, i + chunkSize));
     }
