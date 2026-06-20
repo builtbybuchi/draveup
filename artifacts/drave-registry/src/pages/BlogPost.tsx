@@ -42,10 +42,8 @@ export function BlogPost() {
     <PageLayout>
       <div className="bg-[#F8FAFF] py-16 border-b border-gray-200">
         <div className="max-w-3xl mx-auto px-4">
-          <Link href="/knowledgebase">
-            <a className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium mb-8">
-              <ArrowLeft className="w-4 h-4" /> Back to Knowledgebase
-            </a>
+          <Link href="/knowledgebase" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium mb-8">
+            <ArrowLeft className="w-4 h-4" /> Back to Knowledgebase
           </Link>
           
           {loading ? (

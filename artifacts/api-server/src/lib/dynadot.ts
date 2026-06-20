@@ -269,6 +269,7 @@ export interface WhoisResult {
   registrant?: { name?: string; organization?: string; country?: string };
   raw?: any;
   message?: string;
+  error?: string;
 }
 
 export async function whoisLookup(domain: string): Promise<WhoisResult> {
@@ -278,7 +279,7 @@ export async function whoisLookup(domain: string): Promise<WhoisResult> {
       headers: { Accept: "application/rdap+json" },
     });
     if (res.status === 404) return { found: false, domain: d, message: "Domain not found — likely available." };
-    if (!res.ok) return { found: false, domain: d, message: `RDAP HTTP ${res.status}` };
+    if (!res.ok) return { found: false, domain: d, error: `RDAP HTTP ${res.status}` };
     const json: any = await res.json();
     const events: any[] = json.events || [];
     const findEvent = (a: string) => events.find((e) => e.eventAction === a)?.eventDate;
@@ -287,7 +288,7 @@ export async function whoisLookup(domain: string): Promise<WhoisResult> {
     const registrar = registrarEntity?.vcardArray?.[1]?.find?.((f: any) => f[0] === "fn")?.[3];
     return { found: true, domain: d, registrar: registrar || undefined, status: json.status, createdAt: findEvent("registration"), updatedAt: findEvent("last changed"), expiresAt: findEvent("expiration"), nameservers: ns, raw: json };
   } catch (e) {
-    return { found: false, domain: d, message: `WHOIS lookup failed: ${String(e)}` };
+    return { found: false, domain: d, error: `WHOIS lookup failed: ${String(e)}` };
   }
 }
 

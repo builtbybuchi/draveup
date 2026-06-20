@@ -1,3 +1,4 @@
+import { useAuth as useClerkAuth } from '@clerk/react';
 import { useAuth } from '@/context/AuthContext';
 import { useCart } from '@/context/CartContext';
 import { useCurrency } from '@/context/CurrencyContext';
@@ -24,6 +25,7 @@ const cartTypeToOrderType: Record<string, string> = {
 export function Checkout() {
   const { t } = useTranslation(['checkout']);
   const { isAuthenticated, user, openLoginModal } = useAuth();
+  const { getToken } = useClerkAuth();
   const { items, removeItem, subtotalUsd, clearCart } = useCart();
   const { formatPrice, currency } = useCurrency();
   const [, setLocation] = useLocation();
@@ -36,11 +38,15 @@ export function Checkout() {
 
   useEffect(() => {
     if (!isAuthenticated) return;
-    fetch(apiUrl('/api/wallet/balance'))
+    getToken().then(token => {
+      const headers = new Headers();
+      if (token) headers.set('Authorization', `Bearer ${token}`);
+      return fetch(apiUrl('/api/wallet/balance'), { headers });
+    })
       .then((r) => r.ok ? r.json() : { balanceUsd: 0 })
       .then((d) => setWalletUsd(Number(d.balanceUsd || 0)))
       .catch(() => setWalletUsd(0));
-  }, [isAuthenticated]);
+  }, [isAuthenticated, getToken]);
 
   useEffect(() => {
     // Dynamically load Paystack script
@@ -111,29 +117,27 @@ export function Checkout() {
   const totalUsd = subtotalUsd;
   const walletEnough = walletUsd >= totalUsd && totalUsd > 0;
 
-  const handlePaystackInline = (orderData: any) => {
+  const handlePaystackInline = async (orderData: any) => {
     if (!window.PaystackPop) {
       setError("Paystack is not loaded. Please refresh.");
       setPlacing(false);
       return;
     }
 
-    // Paystack amounts are in the smallest currency unit. 
-    // We pass the display currency and amount.
-    // Paystack allows USD charging depending on merchant configuration.
-    // If currency === 'USD', multiply by 100 to get cents.
-    // If currency === 'NGN', multiply by 100 to get kobo.
+    const token = await getToken();
     const amountInSmallestUnit = Math.round(Number(orderData.displayAmount) * 100);
 
     const handler = window.PaystackPop.setup({
-      key: import.meta.env.VITE_PAYSTACK_PUBLIC_KEY, // Make sure to add this in frontend .env
+      key: import.meta.env.VITE_PAYSTACK_PUBLIC_KEY,
       email: orderData.email,
       amount: amountInSmallestUnit,
-      currency: currency.code, // e.g. "USD" or "NGN"
+      currency: currency.code,
       ref: orderData.reference,
       callback: function(response: any) {
-        // Verify via backend
-        fetch(apiUrl(`/api/orders/${orderData.orderId}/verify`), { method: 'POST' })
+        const headers = new Headers();
+        if (token) headers.set('Authorization', `Bearer ${token}`);
+        
+        fetch(apiUrl(`/api/orders/${orderData.orderId}/verify`), { method: 'POST', headers })
           .then(r => r.json())
           .then(res => {
             if (res.status === 'PAID') {
@@ -173,9 +177,13 @@ export function Checkout() {
         };
       });
 
+      const token = await getToken();
+      const headers = new Headers({ 'Content-Type': 'application/json' });
+      if (token) headers.set('Authorization', `Bearer ${token}`);
+
       const res = await fetch(apiUrl('/api/orders'), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({
           items: apiItems,
           paymentMethod: method,

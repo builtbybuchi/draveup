@@ -58,8 +58,7 @@ export function BlogList() {
           <div className="space-y-8">
             {blogs.map((b) => (
               <div key={b.id} className="bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-lg transition-shadow">
-                <Link href={`/knowledgebase/${b.slug}`}>
-                  <a className="block group">
+                <Link href={`/knowledgebase/${b.slug}`} className="block group">
                     <h2 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-3">
                       {b.title}
                     </h2>
@@ -78,7 +77,6 @@ export function BlogList() {
                         Read Article &rarr;
                       </div>
                     </div>
-                  </a>
                 </Link>
               </div>
             ))}
