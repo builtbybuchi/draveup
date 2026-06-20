@@ -40,10 +40,40 @@ export function TldsPage({ role }: { role: string }) {
 
   const sync = async () => {
     setSyncing(true);
-    setSyncMsg(null);
+    setSyncMsg("Fetching TLD list from Dynadot...");
     try {
-      const r = await api("/api/admin/tlds/sync", { method: "POST" });
-      setSyncMsg(`Synced ${r.total} TLDs — ${r.added} added, ${r.updated} updated, ${r.removed} disabled.`);
+      // 1. Fetch all
+      const r = await api("/api/admin/tlds/remote", { method: "GET" });
+      if (!r.remote || r.remote.length === 0) {
+        throw new Error("Dynadot returned no TLDs");
+      }
+
+      const remote = r.remote;
+      const chunkSize = 25;
+      let totalAdded = 0;
+      let totalUpdated = 0;
+
+      // 2. Process chunks
+      for (let i = 0; i < remote.length; i += chunkSize) {
+        const chunk = remote.slice(i, i + chunkSize);
+        setSyncMsg(`Syncing chunk ${Math.floor(i / chunkSize) + 1} of ${Math.ceil(remote.length / chunkSize)}...`);
+        const cr = await api("/api/admin/tlds/sync-chunk", {
+          method: "POST",
+          body: JSON.stringify({ chunk })
+        });
+        totalAdded += cr.added || 0;
+        totalUpdated += cr.updated || 0;
+      }
+
+      // 3. Cleanup disabled
+      setSyncMsg("Cleaning up disabled TLDs...");
+      const activeTlds = remote.map((x: any) => x.tld.toLowerCase());
+      const cl = await api("/api/admin/tlds/sync-cleanup", {
+        method: "POST",
+        body: JSON.stringify({ activeTlds })
+      });
+
+      setSyncMsg(`Synced ${remote.length} TLDs — ${totalAdded} added, ${totalUpdated} updated, ${cl.disabled || 0} disabled.`);
       load();
     } catch (e: any) {
       setSyncMsg(`Error: ${e.message}`);
@@ -86,7 +116,8 @@ export function TldsPage({ role }: { role: string }) {
         <div>
           <h2 className="text-2xl font-bold">TLDs &amp; pricing</h2>
           <p className="text-slate-500 text-sm mt-1">
-            Wholesale costs come from Dynadot. Retail prices are what customers see across the registry.
+            Wholesale costs come from Dynadot. Retail prices use the following markup structure: <br/>
+            Cost &lt; $5: +$1 | $5 - $8.99: +$3 | $9 - $16.99: +$6 | $17 - $59.99: +$9 | &ge; $60: +$12.
           </p>
         </div>
         {isAdmin && (

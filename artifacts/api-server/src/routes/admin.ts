@@ -56,42 +56,52 @@ router.get("/admin/tlds", requireRole("ADMIN", "CUSTOMER_SERVICE"), async (_req,
   );
 });
 
-/**
- * POST /api/admin/tlds/sync
- * Pulls all TLDs + wholesale prices from Dynadot, then syncs the DB:
- *   - Adds new TLDs
- *   - Updates wholesale costs on existing TLDs
- *   - Marks TLDs no longer in Dynadot as disabled
- * Does not overwrite admin-set retail prices.
- */
-router.post("/admin/tlds/sync", requireRole("ADMIN"), async (req: any, res) => {
+function getMarkupCost(cost: number) {
+  if (cost < 5) return cost + 1;
+  if (cost < 9) return cost + 3;
+  if (cost < 17) return cost + 6;
+  if (cost < 60) return cost + 9;
+  return cost + 12;
+}
+
+router.get("/admin/tlds/remote", requireRole("ADMIN"), async (req: any, res) => {
   try {
     const remote = await getTldPrices("USD");
-    if (remote.length === 0) {
-      return res.status(502).json({ error: "Dynadot returned no TLDs" });
-    }
+    res.json({ ok: true, remote });
+  } catch (err: any) {
+    res.status(500).json({ error: err?.message || "Failed to fetch from Dynadot" });
+  }
+});
 
-    const MARKUP = 6; // $6 markup on all prices
-    const remoteByName = new Map(remote.map((r) => [r.tld.toLowerCase(), r]));
-    const existing = await prisma.tld.findMany();
-    const existingByName = new Map(existing.map((t: any) => [t.name.toLowerCase(), t]));
+router.post("/admin/tlds/sync-chunk", requireRole("ADMIN"), async (req: any, res) => {
+  try {
+    const { chunk } = req.body;
+    if (!Array.isArray(chunk)) return res.status(400).json({ error: "chunk must be an array" });
 
-    let added = 0, updated = 0, removed = 0;
     const now = new Date();
     const ops: any[] = [];
+    const remoteByName = new Map(chunk.map((r: any) => [r.tld.toLowerCase(), r]));
+    const names = Array.from(remoteByName.keys());
 
-    // upsert each remote TLD
-    for (const r of remote) {
+    const existing = await prisma.tld.findMany({
+      where: { name: { in: names } }
+    });
+    const existingByName = new Map(existing.map((t: any) => [t.name.toLowerCase(), t]));
+
+    let added = 0, updated = 0;
+
+    for (const r of chunk) {
       const normalizedName = r.tld.toLowerCase();
       const ex = existingByName.get(normalizedName);
       const newCostRegister = r.registration ?? 0;
       const newCostRenew = r.renewal ?? 0;
       const newCostTransfer = r.transfer ?? 0;
       const newCostRestore = r.restore ?? 0;
-      const newPriceRegister = newCostRegister + MARKUP;
-      const newPriceRenew = newCostRenew + MARKUP;
-      const newPriceTransfer = newCostTransfer + MARKUP;
-      const newPriceRestore = newCostRestore + MARKUP;
+
+      const newPriceRegister = getMarkupCost(newCostRegister);
+      const newPriceRenew = getMarkupCost(newCostRenew);
+      const newPriceTransfer = getMarkupCost(newCostTransfer);
+      const newPriceRestore = getMarkupCost(newCostRestore);
 
       if (!ex) {
         ops.push(
@@ -152,31 +162,39 @@ router.post("/admin/tlds/sync", requireRole("ADMIN"), async (req: any, res) => {
       }
     }
 
-    // disable TLDs no longer in Dynadot
-    for (const ex of existing) {
-      if (!remoteByName.has((ex as any).name.toLowerCase()) && (ex as any).enabled) {
-        ops.push(
-          prisma.tld.update({ where: { id: (ex as any).id }, data: { enabled: false } })
-        );
-        removed++;
-      }
+    if (ops.length > 0) {
+      await prisma.$transaction(ops);
     }
 
-    // Execute operations in chunks of 25 to avoid CF subrequest limits and Prisma's 5s timeout
-    const chunkSize = 25;
-    for (let i = 0; i < ops.length; i += chunkSize) {
-      await prisma.$transaction(ops.slice(i, i + chunkSize));
-    }
-
-    await audit(req, "tld.sync", null as any, { added, updated, removed, total: remote.length });
-    res.json({ ok: true, added, updated, removed, total: remote.length });
+    res.json({ ok: true, added, updated });
   } catch (err: any) {
-    console.error("TLD sync failed", err);
-    res.status(500).json({
-      error: err?.message || "TLD sync failed",
-      code: err?.code || "TLD_SYNC_FAILED",
-      source: "Dynadot",
+    console.error("TLD chunk sync failed", err);
+    res.status(500).json({ error: err?.message || "TLD chunk sync failed" });
+  }
+});
+
+router.post("/admin/tlds/sync-cleanup", requireRole("ADMIN"), async (req: any, res) => {
+  try {
+    const { activeTlds } = req.body;
+    if (!Array.isArray(activeTlds)) return res.status(400).json({ error: "activeTlds must be an array" });
+
+    const normalized = activeTlds.map((n: string) => n.toLowerCase());
+    const toDisable = await prisma.tld.findMany({
+      where: { enabled: true, name: { notIn: normalized } },
+      select: { id: true }
     });
+
+    if (toDisable.length > 0) {
+      await prisma.tld.updateMany({
+        where: { id: { in: toDisable.map((t: any) => t.id) } },
+        data: { enabled: false }
+      });
+    }
+
+    await audit(req, "tld.sync.complete", null as any, { disabled: toDisable.length, totalActive: activeTlds.length });
+    res.json({ ok: true, disabled: toDisable.length });
+  } catch (err: any) {
+    res.status(500).json({ error: err?.message || "TLD cleanup failed" });
   }
 });
 
