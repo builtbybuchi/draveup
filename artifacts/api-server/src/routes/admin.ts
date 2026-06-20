@@ -157,7 +157,11 @@ router.post("/admin/tlds/sync", requireRole("ADMIN"), async (req: any, res) => {
     res.json({ ok: true, added, updated, removed, total: remote.length });
   } catch (err: any) {
     console.error("TLD sync failed", err);
-    res.status(500).json({ error: err?.message || "TLD sync failed" });
+    res.status(500).json({
+      error: err?.message || "TLD sync failed",
+      code: err?.code || "TLD_SYNC_FAILED",
+      source: "Dynadot",
+    });
   }
 });
 

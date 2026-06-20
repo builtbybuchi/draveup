@@ -2,6 +2,16 @@ import { logger } from "./logger";
 
 const API_BASE = process.env.DYNADOT_API_BASE;
 
+function getApiBaseUrl(): URL {
+  if (!API_BASE) throw new Error("DYNADOT_API_BASE environment variable is required");
+
+  try {
+    return new URL(API_BASE);
+  } catch {
+    return new URL(`https://${API_BASE.replace(/^\/+/, "")}`);
+  }
+}
+
 function getApiKey(): string {
   const key = process.env.DYNADOT_API_KEY;
   if (!key) throw new Error("DYNADOT_API_KEY environment variable is required");
@@ -9,7 +19,7 @@ function getApiKey(): string {
 }
 
 async function callDynadot(params: Record<string, string>): Promise<any> {
-  const url = new URL(API_BASE);
+  const url = getApiBaseUrl();
   url.searchParams.set("key", getApiKey());
   for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
   const res = await fetch(url.toString(), { method: "GET" });
@@ -17,13 +27,17 @@ async function callDynadot(params: Record<string, string>): Promise<any> {
   const raw = await res.text().catch(() => "");
   if (!res.ok) {
     logger.error({ command: params.command, status: res.status, body: raw.slice(0, 2000) }, "Dynadot non-2xx response");
-    throw new Error(`Dynadot API returned status ${res.status} for command "${params.command}"`);
+    throw new Error(
+      `Dynadot API returned status ${res.status} for command "${params.command}"${raw ? `: ${raw.slice(0, 300)}` : ""}`,
+    );
   }
   try {
     return JSON.parse(raw);
   } catch (e) {
     logger.error({ command: params.command, body: raw.slice(0, 2000) }, "Dynadot returned non-JSON response");
-    throw new Error(`Dynadot returned non-JSON response for command "${params.command}"`);
+    throw new Error(
+      `Dynadot returned non-JSON response for command "${params.command}"${raw ? `: ${raw.slice(0, 300)}` : ""}`,
+    );
   }
 }
 
