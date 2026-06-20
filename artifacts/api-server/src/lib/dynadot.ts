@@ -1,6 +1,6 @@
 import { logger } from "./logger";
 
-const API_BASE = "https://api-sandbox.dynadot.com/api3.json";
+const API_BASE = process.env.DYNADOT_API_BASE;
 
 function getApiKey(): string {
   const key = process.env.DYNADOT_API_KEY;
