@@ -18,14 +18,21 @@ export function Support() {
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: MessageSquare, k: "chat" },
-              { icon: Phone, k: "phone" },
-              { icon: Ticket, k: "ticket" },
-              { icon: BookOpen, k: "kb" }
+              { icon: MessageSquare, k: "chat", action: () => { if ((window as any).Tawk_API) (window as any).Tawk_API.maximize(); } },
+              { icon: Ticket, k: "ticket", href: "mailto:tickets@draveup.p.tawk.email" },
+              { icon: BookOpen, k: "kb", href: "https://draveup.tawk.help/", target: "_blank" }
             ].map((channel, i) => (
-              <div key={i} className="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm hover:shadow-md hover:border-primary/30 transition-all group cursor-pointer flex flex-col">
+              <div 
+                key={i} 
+                onClick={() => {
+                  if (channel.action) channel.action();
+                  else if (channel.href && channel.target) window.open(channel.href, channel.target);
+                  else if (channel.href) window.location.href = channel.href;
+                }}
+                className="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-sm hover:shadow-md hover:border-primary/30 transition-all group cursor-pointer flex flex-col"
+              >
                 <div className="w-16 h-16 bg-blue-50 text-primary rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                   <channel.icon className="w-8 h-8" />
                 </div>

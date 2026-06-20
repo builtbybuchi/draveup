@@ -8,7 +8,7 @@
     "title": "Get help the way you prefer",
     "chat": { "title": "Live Chat", "desc": "Instant answers from our support team. Average response time: under 2 minutes.", "cta": "Start Chat" },
     "phone": { "title": "Phone Support", "desc": "Speak directly with a domain and hosting expert. Available 24/7 in multiple languages.", "cta": "Call Now" },
-    "ticket": { "title": "Support Ticket", "desc": "Submit a detailed request and get a thorough response within 2 hours.", "cta": "Open Ticket" },
+    "ticket": { "title": "Support Ticket", "desc": "Send an email directly to tickets@draveup.p.tawk.email for detailed inquiries.", "cta": "Email Us" },
     "kb": { "title": "Knowledge Base", "desc": "Browse 1,000+ articles, tutorials, and video guides in our help center.", "cta": "Browse Articles" }
   },
   "faq": {
